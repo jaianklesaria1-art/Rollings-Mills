@@ -707,6 +707,19 @@ button { font: inherit; }
     linear-gradient(90deg, rgba(0,0,0,.45) 2px, transparent 2px) 0 0 / 260px 130px,
     linear-gradient(0deg, rgba(0,0,0,.45) 2px, transparent 2px) 0 0 / 260px 130px;
 }
+.mill.concrete {
+  background:
+    radial-gradient(ellipse 25% 45% at 20% 0%, rgba(255,32,54,.4), transparent 70%),
+    radial-gradient(ellipse 25% 45% at 50% 0%, rgba(255,32,54,.4), transparent 70%),
+    radial-gradient(ellipse 25% 45% at 80% 0%, rgba(255,32,54,.4), transparent 70%),
+    linear-gradient(90deg, rgba(10,10,12,.93) 0%, rgba(10,10,12,.82) 45%, rgba(10,10,12,.5) 100%),
+    linear-gradient(0deg, rgba(120,0,10,.35), transparent 50%),
+    var(--noise),
+    url("../assets/photos/brewhouse-bw.webp") 70% center / cover no-repeat,
+    #2a2a2e;
+}
+.snap img { height: auto; filter: contrast(1.05); }
+.snap-3 img { aspect-ratio: 5 / 3.4; object-position: 50% 60%; }
 .mill { padding: clamp(130px, 15vw, 200px) var(--gutter) clamp(90px, 10vw, 140px); }
 .mill-lamps { position: absolute; inset: 0 0 auto; height: 120px; pointer-events: none; }
 .mill-lamps i {
