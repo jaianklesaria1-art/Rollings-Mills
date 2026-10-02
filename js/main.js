@@ -259,3 +259,40 @@ form.addEventListener("submit", (e) => {
     a.click();
   });
 })();
+
+// ---------- header scroll-progress line ----------
+(function progressLine() {
+  const bar = document.querySelector(".scroll-progress");
+  if (!bar) return;
+  const update = () => {
+    const max = document.documentElement.scrollHeight - innerHeight;
+    bar.style.setProperty("--p", max > 0 ? (scrollY / max).toFixed(4) : 0);
+  };
+  addEventListener("scroll", update, { passive: true });
+  addEventListener("resize", update);
+  update();
+})();
+
+// ---------- typewriter "scramble" for small kicker lines ----------
+(function scrambleText() {
+  const els = document.querySelectorAll("[data-scramble]");
+  if (!els.length || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const glyphs = "!<>-_\\/[]{}=+*^?#░▒▓01";
+  const run = (el) => {
+    const text = el.textContent;
+    const start = performance.now();
+    const duration = 900 + text.length * 25;
+    const tick = (now) => {
+      const progress = Math.min((now - start) / duration, 1);
+      const revealed = Math.floor(progress * text.length);
+      el.textContent = text.slice(0, revealed) + [...text.slice(revealed)].map((c) => (c === " " ? " " : glyphs[Math.floor(Math.random() * glyphs.length)])).join("");
+      if (progress < 1) requestAnimationFrame(tick);
+      else el.textContent = text;
+    };
+    requestAnimationFrame(tick);
+  };
+  const io = new IntersectionObserver((entries) => entries.forEach((e) => {
+    if (e.isIntersecting) { run(e.target); io.unobserve(e.target); }
+  }), { threshold: 0.6 });
+  els.forEach((el) => io.observe(el));
+})();

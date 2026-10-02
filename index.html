@@ -8,7 +8,7 @@
   <meta name="theme-color" content="#0a0a0c">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Permanent+Marker&family=Rubik+Spray+Paint&family=Rubik+Wet+Paint&family=Saira+Stencil+One&family=Sedgwick+Ave+Display&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Permanent+Marker&family=Rubik+Spray+Paint&family=Rubik+Wet+Paint&family=Saira+Stencil+One&family=Sedgwick+Ave+Display&family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body class="is-locked">
@@ -42,6 +42,7 @@
       <a href="#visit">Visit</a>
       <a href="#book" class="btn btn-spray btn-small">Book a table</a>
     </nav>
+    <span class="scroll-progress" aria-hidden="true"></span>
     <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav" type="button"><span></span><span></span></button>
   </header>
 
@@ -99,35 +100,28 @@
       <p class="walk-hint" aria-hidden="true">walk in <span>↓</span></p>
     </section>
 
-    <!-- ================= BRAND HERO ================= -->
-    <section class="brand graffiti-wall" id="brand" aria-labelledby="brand-title">
-      <div class="wall-tags" data-tags="pink,cyan,white" data-count="44" id="br-tags" aria-hidden="true"></div>
+    <!-- ================= BRAND HERO (taproom) ================= -->
+    <section class="th" id="brand" aria-labelledby="th-title">
+      <div class="th-bg" aria-hidden="true"><img src="assets/photos/brewhouse-wide.webp" alt=""></div>
+      <div class="th-smoke" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+      <div class="th-shade" aria-hidden="true"></div>
 
-      <div class="brand-tapes" aria-hidden="true">
-        <div class="btape btape-a"><div class="btape-track"><span>BREW LOUD ⚙ BORN IN MUMBAI ⚙ CREW OWNED &amp; OPERATED SINCE 2021 ⚙ 100% INDEPENDENT ⚙ </span><span>BREW LOUD ⚙ BORN IN MUMBAI ⚙ CREW OWNED &amp; OPERATED SINCE 2021 ⚙ 100% INDEPENDENT ⚙ </span></div></div>
-        <div class="btape btape-b"><div class="btape-track"><span>FRESH FROM THE TANK ✦ NO BORING BEER ✦ KANDIVALI × ANDHERI ✦ POURED BY THE PEOPLE WHO MADE IT ✦ </span><span>FRESH FROM THE TANK ✦ NO BORING BEER ✦ KANDIVALI × ANDHERI ✦ POURED BY THE PEOPLE WHO MADE IT ✦ </span></div></div>
+      <div class="th-inner">
+        <p class="th-kicker" data-scramble>Independent &amp; crew operated since 2021</p>
+        <h2 class="th-title" id="th-title">
+          <span class="th-line th-l1">No</span>
+          <span class="th-line th-l2">Boring</span>
+          <span class="th-line th-l3">Beer</span>
+        </h2>
+        <div class="th-actions">
+          <a class="th-btn th-btn-fill" href="#about">Our taproom</a>
+          <a class="th-btn th-btn-line" href="#taps">What's on tap</a>
+        </div>
       </div>
 
-      <div class="brand-can brand-can-l" data-can="shocktown" aria-hidden="true"></div>
-      <div class="brand-can brand-can-r" data-can="guns" aria-hidden="true"></div>
-
-      <div class="brand-inner">
-        <p class="brand-chip">100% independent craft · Mumbai</p>
-        <h2 class="brand-title" id="brand-title">
-          <span class="bt-1">Brewed</span>
-          <span class="bt-2">Loud</span>
-          <span class="bt-3">poured fresh</span>
-        </h2>
-        <p class="brand-lead">A crew-run craft brewery and taproom. Brewed in a Kandivali warehouse, poured fresh in Andheri West. No boring beer, ever.</p>
-        <div class="brand-actions">
-          <a href="#taps" class="btn btn-spray">See what's pouring</a>
-          <a href="#about" class="btn btn-ghost">Our taproom</a>
-        </div>
-        <ul class="brand-badges">
-          <li><b>Est.</b> 2021</li>
-          <li><b>Brewed in</b> Kandivali</li>
-          <li><b>Poured in</b> Andheri W</li>
-        </ul>
+      <p class="th-scroll" aria-hidden="true">scroll if you're thirsty ↓</p>
+      <div class="th-ticker" aria-hidden="true">
+        <div class="th-track"><span>No boring beer ⚙ Born in Mumbai ⚙ Crew owned &amp; operated since 2021 ⚙ Brewed in Kandivali ⚙ Poured in Andheri ⚙ </span><span>No boring beer ⚙ Born in Mumbai ⚙ Crew owned &amp; operated since 2021 ⚙ Brewed in Kandivali ⚙ Poured in Andheri ⚙ </span></div>
       </div>
     </section>
 
@@ -139,11 +133,11 @@
           <figure class="snap snap-1"><img src="assets/photos/brewhouse-bw.webp" alt="Stainless steel fermentation tanks lining the Rolling Mills brewhouse in Kandivali" width="737" height="697" loading="lazy"><figcaption>the brewhouse, Kandivali</figcaption></figure>
           <figure class="snap snap-2"><div class="snap-ph"><span>taproom photo</span></div><figcaption>the bar, Andheri W</figcaption></figure>
           <figure class="snap snap-3"><img src="assets/photos/brewhouse-wide.webp" alt="The Rolling Mills brewhouse with its backlit gold logo above the brewing tanks" width="1632" height="726" loading="lazy"><figcaption>the brew deck</figcaption></figure>
-          <span class="about-sticker" aria-hidden="true">since<br>2021</span>
+          <span class="about-sticker" aria-hidden="true"><b>Est. 21</b><small>Mumbai</small></span>
         </div>
 
         <div class="about-copy">
-          <p class="marker">about the taproom</p>
+          <p class="about-kicker" data-scramble>Our story</p>
           <h2 class="about-title" id="about-title">Built by beer nerds.<br><span>Run by the crew.</span></h2>
           <p>Rolling Mills started in 2021 in a warehouse in Charkop Industrial Estate, Kandivali, with one obsession: brewing beers that make you stop mid-sip. What began as a brewhouse grew into collabs, a loyal crowd, and a taproom of our own.</p>
           <p>Our <strong>Craft Beer Dispensary</strong> on New Link Road, Andheri West, is where it all comes together. Every pint is poured fresh from our tanks by the people who brewed it, with bar food built to go with beer and something happening most nights.</p>

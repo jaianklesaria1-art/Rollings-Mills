@@ -42,19 +42,15 @@ if (window.gsap && window.ScrollTrigger) {
     // flickering tube lights
     gsap.to(".tube-2", { opacity: 0.35, duration: 0.08, repeat: -1, repeatDelay: 2.7, yoyo: true });
 
-    /* ---- 1b. BRAND HERO: headline slams in, tapes slide, cans drift ---- */
-    gsap.timeline({ scrollTrigger: { trigger: ".brand", start: "top 65%" } })
-      .from(".brand-chip", { y: -30, autoAlpha: 0, duration: 0.4 })
-      .from(".bt-1", { y: 80, autoAlpha: 0, duration: 0.5, ease: "power3.out" }, "-=0.1")
-      .fromTo(".bt-2", { clipPath: "inset(-20% 100% -20% 0)", scale: 1.15 }, { clipPath: "inset(-20% 0% -20% 0)", scale: 1, duration: 0.9, ease: "power2.out" }, "-=0.2")
-      .from(".bt-3", { x: 120, rotation: 10, autoAlpha: 0, duration: 0.6, ease: "back.out(2)" }, "-=0.4")
-      .from(".brand-lead, .brand-actions", { y: 30, autoAlpha: 0, stagger: 0.12, duration: 0.5 }, "-=0.3")
-      .from(".brand-badges li", { y: 40, autoAlpha: 0, rotation: () => gsap.utils.random(-12, 12), stagger: 0.1, duration: 0.5, ease: "back.out(2)" }, "-=0.3");
-    const brandScrub = { trigger: ".brand", start: "top bottom", end: "bottom top", scrub: true };
-    gsap.fromTo(".btape-a", { x: -160 }, { x: 160, ease: "none", scrollTrigger: brandScrub });
-    gsap.fromTo(".btape-b", { x: 160 }, { x: -160, ease: "none", scrollTrigger: { ...brandScrub } });
-    gsap.fromTo(".brand-can-l", { y: 140, rotation: -40 }, { y: -120, rotation: -8, ease: "none", scrollTrigger: { ...brandScrub } });
-    gsap.fromTo(".brand-can-r", { y: 160, rotation: 40 }, { y: -100, rotation: 8, ease: "none", scrollTrigger: { ...brandScrub } });
+    /* ---- 1b. BRAND HERO: brush lines blur in, photo drifts, ticker slides ---- */
+    gsap.timeline({ scrollTrigger: { trigger: ".th", start: "top 60%" } })
+      .from(".th-line", { yPercent: 40, autoAlpha: 0, filter: "blur(18px)", scale: 1.08, stagger: 0.16, duration: 0.9, ease: "power3.out" })
+      .from(".th-actions .th-btn", { y: 24, autoAlpha: 0, stagger: 0.1, duration: 0.5 }, "-=0.4")
+      .from(".th-scroll", { autoAlpha: 0, duration: 0.6 }, "-=0.2");
+    const thScrub = { trigger: ".th", start: "top bottom", end: "bottom top", scrub: true };
+    gsap.fromTo(".th-bg", { yPercent: -6, scale: 1.12 }, { yPercent: 6, scale: 1, ease: "none", scrollTrigger: thScrub });
+    gsap.to(".th-title", { yPercent: -18, ease: "none", scrollTrigger: { trigger: ".th", start: "top top", end: "bottom top", scrub: true } });
+    gsap.fromTo(".th-ticker", { x: 80 }, { x: -120, ease: "none", scrollTrigger: { ...thScrub } });
 
     /* ---- 1c. ABOUT: photos get taped up, perks stack in ---- */
     gsap.from(".snap", {
@@ -62,7 +58,25 @@ if (window.gsap && window.ScrollTrigger) {
       scrollTrigger: { trigger: ".about-photos", start: "top 80%" },
     });
     gsap.from(".about-sticker", { scale: 3, autoAlpha: 0, duration: 0.4, ease: "power4.in", delay: 0.6, scrollTrigger: { trigger: ".about-photos", start: "top 80%" } });
-    gsap.from(".about-title, .about-copy > p", { y: 50, autoAlpha: 0, stagger: 0.12, duration: 0.7, ease: "power3.out", scrollTrigger: { trigger: ".about-copy", start: "top 80%" } });
+    // split the About heading into words so each one can blur in
+    document.querySelectorAll(".about-title").forEach((h) => {
+      h.querySelectorAll(":scope, :scope > span").forEach((node) => {
+        [...node.childNodes].forEach((n) => {
+          if (n.nodeType !== 3 || !n.textContent.trim()) return;
+          const frag = document.createDocumentFragment();
+          n.textContent.split(/(\s+)/).forEach((w) => {
+            if (!w.trim()) return frag.append(w);
+            const span = document.createElement("span");
+            span.className = "word";
+            span.textContent = w;
+            frag.append(span);
+          });
+          n.replaceWith(frag);
+        });
+      });
+    });
+    gsap.from(".about-title .word", { autoAlpha: 0, filter: "blur(14px)", x: -12, stagger: 0.08, duration: 0.7, ease: "power2.out", scrollTrigger: { trigger: ".about-title", start: "top 82%" } });
+    gsap.from(".about-copy > p, .about-actions", { y: 40, autoAlpha: 0, stagger: 0.12, duration: 0.7, ease: "power3.out", scrollTrigger: { trigger: ".about-title", start: "top 75%" } });
     gsap.from(".perks li", { y: 40, autoAlpha: 0, scale: 0.9, stagger: 0.07, duration: 0.5, ease: "back.out(1.8)", scrollTrigger: { trigger: ".perks", start: "top 88%" } });
 
     /* ---- 2. FEATURE: pinned can while the story plays around it ---- */
