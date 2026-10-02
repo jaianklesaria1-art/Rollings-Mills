@@ -1,21 +1,19 @@
 /* =========================================================
-   ROLLING MILLS: interactions + scroll animations (GSAP)
+   INTERACTIONS: age gate, nav, open status, filters,
+   calendar files, WhatsApp booking, spray wall
    ========================================================= */
+
+const refreshScroll = () => window.ScrollTrigger && ScrollTrigger.refresh();
 
 // ---------- age gate ----------
 const gate = document.getElementById("age-gate");
 const AGE_KEY = "rm-age-ok";
-
 function unlock() {
   gate.classList.add("hidden");
   document.body.classList.remove("is-locked");
-  if (window.ScrollTrigger) ScrollTrigger.refresh();
+  refreshScroll();
 }
-
-let ageOk = false;
-try { ageOk = localStorage.getItem(AGE_KEY) === "1"; } catch (e) {}
-if (ageOk) unlock();
-
+try { if (localStorage.getItem(AGE_KEY) === "1") unlock(); } catch (e) {}
 gate.querySelector('[data-age="yes"]').addEventListener("click", () => {
   try { localStorage.setItem(AGE_KEY, "1"); } catch (e) {}
   unlock();
@@ -28,121 +26,236 @@ gate.querySelector('[data-age="no"]').addEventListener("click", () => {
 const header = document.querySelector(".site-header");
 const nav = document.getElementById("site-nav");
 const toggle = document.querySelector(".nav-toggle");
-
 addEventListener("scroll", () => header.classList.toggle("scrolled", scrollY > 40), { passive: true });
-
 toggle.addEventListener("click", () => {
   const open = nav.classList.toggle("open");
   toggle.setAttribute("aria-expanded", String(open));
 });
-nav.querySelectorAll("a").forEach((a) =>
-  a.addEventListener("click", () => {
-    nav.classList.remove("open");
-    toggle.setAttribute("aria-expanded", "false");
-  })
-);
-
+nav.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => {
+  nav.classList.remove("open");
+  toggle.setAttribute("aria-expanded", "false");
+}));
 document.getElementById("year").textContent = new Date().getFullYear();
 
-// ---------- scroll animations ----------
-if (window.gsap && window.ScrollTrigger) {
-  gsap.registerPlugin(ScrollTrigger);
-  const mm = gsap.matchMedia();
-
-  mm.add("(prefers-reduced-motion: no-preference)", () => {
-    /* ---- 1. HERO: the words split apart while the can spins forward ---- */
-    gsap.set(".hero-word", { xPercent: -50 });
-    gsap.timeline({
-      scrollTrigger: { trigger: ".hero", start: "top top", end: "+=120%", scrub: 1, pin: true },
-    })
-      .to(".hero-tag, .drip-hero, .hero-sub, .scroll-hint", { autoAlpha: 0, y: -40, duration: 0.3 }, 0)
-      .to(".hero-word-top", { x: () => -innerWidth * 0.75, duration: 1 }, 0)
-      .to(".hero-word-bottom", { x: () => innerWidth * 0.75, duration: 1 }, 0)
-      .to(".hero-can", { rotation: 360, scale: 1.6, duration: 1, ease: "power1.inOut" }, 0)
-      .to(".hero-can", { y: () => -innerHeight * 0.15, autoAlpha: 0, duration: 0.3 }, 0.75);
-
-    // small idle wobble so the can feels alive before you scroll
-    gsap.to(".hero-can svg", { y: -12, rotation: 3, duration: 2, yoyo: true, repeat: -1, ease: "sine.inOut" });
-
-    /* ---- 2. FEATURE: pinned can while the story plays around it ---- */
-    const mouth = document.querySelector(".f-mouth");
-    gsap.set(mouth, { yPercent: -50, x: () => innerWidth });
-    gsap.timeline({
-      scrollTrigger: { trigger: ".feature", start: "top top", end: "+=300%", scrub: 1, pin: true, invalidateOnRefresh: true },
-      defaults: { ease: "none" },
-    })
-      // beat 1: can straightens, stats card slides in, title squeezes back
-      .to(".f-can", { rotation: 0, scale: 1.1, duration: 1, ease: "power2.out" }, 0)
-      .to(".f-title", { scale: 0.85, autoAlpha: 0.25, duration: 1 }, 0)
-      .fromTo(".f-stats", { autoAlpha: 0, x: 80 }, { autoAlpha: 1, x: 0, duration: 0.6, ease: "power2.out" }, 0.3)
-      // beat 2: stats out, MOUTHFEEL rolls across, splats pop around the can
-      .to(".f-stats", { autoAlpha: 0, x: 80, duration: 0.4 }, 1.4)
-      .to(".f-title", { yPercent: -150, autoAlpha: 0, duration: 0.6 }, 1.4)
-      .to(mouth, { x: () => -mouth.offsetWidth, duration: 2.4 }, 1.5)
-      .to(".f-can", { rotation: -12, duration: 1 }, 1.6)
-      .to(".splat", { scale: 1, rotation: 0, duration: 0.35, stagger: 0.18, ease: "back.out(2)" }, 1.8)
-      // beat 3: splats fly off, can does a flip and drops away
-      .to(".splat", { scale: 0, rotation: 40, duration: 0.3, stagger: 0.05 }, 3.4)
-      .to(".f-can", { rotation: 360, scale: 0.7, duration: 0.8, ease: "power2.in" }, 3.4)
-      .to(".f-can", { yPercent: 160, duration: 0.4, ease: "power2.in" }, 3.9);
-
-    /* ---- 3. BEER WALL: vertical scroll drives a horizontal line-up ---- */
-    const track = document.getElementById("beers-track");
-    const distance = () => track.scrollWidth - innerWidth;
-    const wall = gsap.to(track, {
-      x: () => -distance(),
-      ease: "none",
-      scrollTrigger: {
-        trigger: ".beers",
-        start: "top top",
-        end: () => "+=" + distance(),
-        scrub: 1,
-        pin: true,
-        invalidateOnRefresh: true,
-      },
-    });
-
-    gsap.utils.toArray(".beer-panel").forEach((panel) => {
-      const st = { trigger: panel, containerAnimation: wall, start: "left right", end: "right left", scrub: true };
-      gsap.fromTo(panel.querySelector(".beer-can"), { rotation: -35, y: 120 }, { rotation: 15, y: -60, ease: "none", scrollTrigger: st });
-      gsap.fromTo(panel.querySelector(".beer-bigword"), { xPercent: -20 }, { xPercent: -80, ease: "none", scrollTrigger: { ...st } });
-      gsap.from(panel.querySelector(".beer-info"), {
-        y: 80, autoAlpha: 0, rotation: 6, duration: 0.6, ease: "back.out(1.6)",
-        scrollTrigger: { trigger: panel, containerAnimation: wall, start: "left 60%", toggleActions: "play none none reverse" },
-      });
-    });
-
-    /* ---- 4. THE MILL: stencil lines stamp in, stickers slap on ---- */
-    gsap.from(".mill-title .line", {
-      yPercent: 100, autoAlpha: 0, skewY: 6, stagger: 0.12, duration: 0.8, ease: "power3.out",
-      scrollTrigger: { trigger: ".mill-title", start: "top 80%" },
-    });
-    gsap.from(".mill-cols p, .mill-facts li", {
-      y: 40, autoAlpha: 0, stagger: 0.1, duration: 0.7,
-      scrollTrigger: { trigger: ".mill-cols", start: "top 85%" },
-    });
-    gsap.from(".sticker", {
-      scale: 3, autoAlpha: 0, stagger: 0.2, duration: 0.4, ease: "power4.in",
-      scrollTrigger: { trigger: ".mill", start: "top 50%" },
-    });
-
-    /* ---- 5. sections: tags, titles and cards ---- */
-    gsap.utils.toArray(".collab, .visit, .ig").forEach((sec) => {
-      gsap.from(sec.querySelectorAll(".tag, .spray-title, .ig-handle"), {
-        y: 60, autoAlpha: 0, stagger: 0.12, duration: 0.8, ease: "power3.out",
-        scrollTrigger: { trigger: sec, start: "top 75%" },
-      });
-    });
-    gsap.from(".location", {
-      y: 100, autoAlpha: 0, rotation: () => gsap.utils.random(-8, 8), stagger: 0.15, duration: 0.8, ease: "back.out(1.4)",
-      scrollTrigger: { trigger: ".visit-grid", start: "top 80%" },
-    });
-    gsap.from(".collab-can", {
-      x: 200, rotation: 60, autoAlpha: 0, duration: 1, ease: "power3.out",
-      scrollTrigger: { trigger: ".collab", start: "top 70%" },
-    });
-  });
-
-  // fonts change text widths, so re-measure once they load
-  if (document.fonts) document.fonts.ready.then(() => ScrollTrigger.refresh());
+// ---------- open / closed (Mumbai time) ----------
+const toMin = (t) => { const [h, m] = t.split(":").map(Number); return h * 60 + m; };
+function mumbaiNow() {
+  const d = new Date();
+  return new Date(d.getTime() + (d.getTimezoneOffset() + 330) * 60000); // IST = UTC+5:30
 }
+function updateOpenStatus() {
+  const chip = document.getElementById("open-status");
+  if (!chip) return;
+  const now = mumbaiNow();
+  const mins = now.getHours() * 60 + now.getMinutes();
+  const open = mins >= toMin(HOURS.open) && mins < toMin(HOURS.close);
+  chip.classList.toggle("open", open);
+  chip.classList.toggle("closed", !open);
+  chip.textContent = open ? `Open now · till ${fmtTime(HOURS.close)}` : `Closed · opens ${fmtTime(HOURS.open)}`;
+}
+updateOpenStatus();
+setInterval(updateOpenStatus, 60000);
+
+// ---------- filter chips (tap list, food, events) ----------
+const vegOnly = document.getElementById("veg-only");
+function applyFilter(group) {
+  const target = document.getElementById(group.dataset.filter);
+  const attr = group.dataset.attr || "type";
+  const value = group.querySelector(".chip.is-on").dataset.value;
+  [...target.children].forEach((item) => {
+    let show = value === "all" || item.dataset[attr] === value;
+    if (target.id === "food-grid" && vegOnly.checked) show = show && item.dataset.veg === "true";
+    item.classList.toggle("is-hidden", !show);
+  });
+  refreshScroll();
+}
+document.querySelectorAll(".chips[data-filter]").forEach((group) => {
+  group.addEventListener("click", (e) => {
+    const chip = e.target.closest(".chip");
+    if (!chip) return;
+    group.querySelectorAll(".chip").forEach((c) => {
+      c.classList.toggle("is-on", c === chip);
+      c.setAttribute("aria-pressed", String(c === chip));
+    });
+    applyFilter(group);
+  });
+});
+vegOnly.addEventListener("change", () => applyFilter(document.querySelector('[data-filter="food-grid"]')));
+
+// ---------- add-to-calendar (.ics download) ----------
+function icsDate(day, time) {
+  const [h, m] = time.split(":").map(Number);
+  const utc = new Date(Date.UTC(day.getFullYear(), day.getMonth(), day.getDate(), h, m) - 330 * 60000);
+  return utc.toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, "");
+}
+document.getElementById("event-wall").addEventListener("click", (e) => {
+  const btn = e.target.closest("[data-ics]");
+  if (!btn) return;
+  const ev = e.currentTarget._events[Number(btn.dataset.ics)];
+  const ics = [
+    "BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Rolling Mills//Events//EN", "BEGIN:VEVENT",
+    `UID:${icsDate(ev.day, ev.time)}-${ev.title.replace(/\W+/g, "")}@rollingmills`,
+    `DTSTAMP:${new Date().toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, "")}`,
+    `DTSTART:${icsDate(ev.day, ev.time)}`,
+    `DTEND:${icsDate(ev.day, ev.end || ev.time)}`,
+    `SUMMARY:${ev.title} @ Rolling Mills`,
+    `DESCRIPTION:${ev.desc.replace(/[,;]/g, "\\$&")}`,
+    "LOCATION:Rolling Mills Craft Beer Dispensary\\, New Link Road\\, Andheri West\\, Mumbai",
+    "END:VEVENT", "END:VCALENDAR",
+  ].join("\r\n");
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(new Blob([ics], { type: "text/calendar" }));
+  a.download = ev.title.replace(/\W+/g, "-").toLowerCase() + ".ics";
+  a.click();
+  setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+});
+
+// ---------- booking → WhatsApp ----------
+const form = document.getElementById("book");
+const bDate = document.getElementById("b-date");
+const bTime = document.getElementById("b-time");
+const bGuests = document.getElementById("b-guests");
+const bStatus = document.getElementById("book-status");
+
+const todayISO = (() => { const n = mumbaiNow(); return `${n.getFullYear()}-${String(n.getMonth() + 1).padStart(2, "0")}-${String(n.getDate()).padStart(2, "0")}`; })();
+bDate.min = todayISO;
+bDate.value = todayISO;
+
+function fillTimes() {
+  // half-hour slots from opening until an hour before closing; past slots hidden for today
+  const now = mumbaiNow();
+  const nowMin = bDate.value === todayISO ? now.getHours() * 60 + now.getMinutes() : -1;
+  const slots = [];
+  for (let m = toMin(HOURS.open); m <= toMin(HOURS.close) - 60; m += 30) {
+    if (m > nowMin) slots.push(`${String(Math.floor(m / 60)).padStart(2, "0")}:${String(m % 60).padStart(2, "0")}`);
+  }
+  bTime.innerHTML = slots.length
+    ? slots.map((s) => `<option value="${s}" ${s === "20:00" ? "selected" : ""}>${fmtTime(s)}</option>`).join("")
+    : `<option value="">No slots left today</option>`;
+}
+fillTimes();
+bDate.addEventListener("change", fillTimes);
+
+form.querySelectorAll("[data-step]").forEach((b) => b.addEventListener("click", () => {
+  bGuests.value = Math.min(40, Math.max(1, Number(bGuests.value || 1) + Number(b.dataset.step)));
+}));
+
+document.getElementById("private-cta").addEventListener("click", () => {
+  document.getElementById("b-occasion").value = "Private party";
+  bGuests.value = Math.max(Number(bGuests.value), 15);
+});
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  let ok = true;
+  form.querySelectorAll("[required]").forEach((input) => {
+    const valid = input.value.trim() !== "";
+    input.closest(".field").classList.toggle("invalid", !valid);
+    ok = ok && valid;
+  });
+  if (!ok) {
+    bStatus.textContent = "Fill in your name, date and time.";
+    bStatus.className = "form-status error";
+    return;
+  }
+  const data = new FormData(form);
+  const when = new Date(data.get("date") + "T00:00:00").toDateString();
+  const msg = `Hi Rolling Mills! I'd like to book a table.\n` +
+    `Name: ${data.get("name")}\nDate: ${when}\nTime: ${fmtTime(data.get("time"))}\nGuests: ${data.get("guests")}` +
+    (data.get("occasion") ? `\nOccasion: ${data.get("occasion")}` : "");
+  window.open(`https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(msg)}`, "_blank", "noopener");
+  bStatus.textContent = "Opening WhatsApp… send the message and we'll confirm.";
+  bStatus.className = "form-status ok";
+});
+
+// ---------- spray wall ----------
+(function sprayWall() {
+  const canvas = document.getElementById("spray-canvas");
+  if (!canvas) return;
+  const ctx = canvas.getContext("2d");
+  let color = "#ff2e88";
+  let spraying = false;
+  let last = null;
+  const drips = [];
+
+  function resize() {
+    const r = canvas.getBoundingClientRect();
+    const dpr = Math.min(devicePixelRatio || 1, 2);
+    const old = canvas.width ? ctx.getImageData(0, 0, canvas.width, canvas.height) : null;
+    canvas.width = r.width * dpr;
+    canvas.height = r.height * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    if (old) ctx.putImageData(old, 0, 0);
+  }
+  resize();
+  addEventListener("resize", resize);
+
+  function puff(x, y) {
+    const radius = 22;
+    ctx.fillStyle = color;
+    for (let i = 0; i < 70; i++) {
+      const a = Math.random() * Math.PI * 2;
+      const r = Math.pow(Math.random(), 1.6) * radius;
+      ctx.globalAlpha = 0.08 + Math.random() * 0.25;
+      ctx.fillRect(x + Math.cos(a) * r, y + Math.sin(a) * r, 1.6, 1.6);
+    }
+    ctx.globalAlpha = 0.5;
+    ctx.beginPath();
+    ctx.arc(x, y, radius * 0.35, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.globalAlpha = 1;
+    // linger too long in one spot and the paint drips
+    if (Math.random() < 0.02) drips.push({ x: x + (Math.random() - 0.5) * 10, y, len: 20 + Math.random() * 70, c: color });
+  }
+
+  function animateDrips() {
+    for (let i = drips.length - 1; i >= 0; i--) {
+      const d = drips[i];
+      ctx.fillStyle = d.c;
+      ctx.globalAlpha = 0.7;
+      ctx.fillRect(d.x, d.y, 3, 2);
+      d.y += 1.2;
+      d.len -= 1.2;
+      if (d.len <= 0) {
+        ctx.beginPath(); ctx.arc(d.x + 1.5, d.y, 3, 0, Math.PI * 2); ctx.fill();
+        drips.splice(i, 1);
+      }
+    }
+    ctx.globalAlpha = 1;
+    requestAnimationFrame(animateDrips);
+  }
+  animateDrips();
+
+  const pos = (e) => { const r = canvas.getBoundingClientRect(); return { x: e.clientX - r.left, y: e.clientY - r.top }; };
+  canvas.addEventListener("pointerdown", (e) => { spraying = true; last = pos(e); puff(last.x, last.y); canvas.setPointerCapture(e.pointerId); });
+  canvas.addEventListener("pointermove", (e) => {
+    if (!spraying) return;
+    const p = pos(e);
+    const dist = Math.hypot(p.x - last.x, p.y - last.y);
+    const steps = Math.max(1, Math.floor(dist / 6));
+    for (let i = 1; i <= steps; i++) puff(last.x + ((p.x - last.x) * i) / steps, last.y + ((p.y - last.y) * i) / steps);
+    last = p;
+  });
+  ["pointerup", "pointercancel", "pointerleave"].forEach((t) => canvas.addEventListener(t, () => (spraying = false)));
+
+  document.querySelectorAll(".can-btn").forEach((b) => b.addEventListener("click", () => {
+    color = b.dataset.color;
+    document.querySelectorAll(".can-btn").forEach((x) => x.classList.toggle("is-on", x === b));
+  }));
+  document.getElementById("spray-clear").addEventListener("click", () => { drips.length = 0; ctx.clearRect(0, 0, canvas.width, canvas.height); });
+  document.getElementById("spray-save").addEventListener("click", () => {
+    // put the brick-wall colour behind the paint so the saved image isn't transparent
+    const out = document.createElement("canvas");
+    out.width = canvas.width; out.height = canvas.height;
+    const o = out.getContext("2d");
+    o.fillStyle = "#18181c"; o.fillRect(0, 0, out.width, out.height);
+    o.drawImage(canvas, 0, 0);
+    o.font = `${28 * (out.width / canvas.clientWidth)}px "Sedgwick Ave Display", cursive`;
+    o.fillStyle = "#ffc21a";
+    o.fillText("@rollingmillsbrewery", 20, out.height - 24);
+    const a = document.createElement("a");
+    a.href = out.toDataURL("image/png");
+    a.download = "my-rolling-mills-tag.png";
+    a.click();
+  });
+})();
