@@ -3,304 +3,211 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Apex Rolling Mills | Hot-Rolled Steel Products</title>
-  <meta name="description" content="Apex Rolling Mills manufactures TMT bars, structural steel, angles, channels, flats and wire rods for construction and industry.">
+  <title>Rolling Mills Brewery | Mumbai Craft Beer</title>
+  <meta name="description" content="Rolling Mills is an independent Mumbai craft brewery brewing expressive and provocative beers. Visit our brewery in Kandivali and our craft beer dispensary in Andheri West.">
+  <meta name="theme-color" content="#121212">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Permanent+Marker&family=Rubik+Wet+Paint&family=Saira+Stencil+One&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
+<body class="is-locked">
 
-  <!-- ============ HEADER ============ -->
-  <header class="site-header" id="top">
-    <div class="container header-inner">
-      <a href="#top" class="logo" aria-label="Apex Rolling Mills home">
-        <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="13" cy="20" r="9"/><circle cx="27" cy="20" r="9"/><rect x="2" y="18" width="36" height="4"/></svg>
-        <span>APEX <strong>ROLLING MILLS</strong></span>
-      </a>
-      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
-        <span></span><span></span><span></span>
-      </button>
-      <nav class="site-nav" id="site-nav">
-        <a href="#about">About</a>
-        <a href="#products">Products</a>
-        <a href="#process">Process</a>
-        <a href="#quality">Quality</a>
-        <a href="#industries">Industries</a>
-        <a href="#contact" class="btn btn-small">Get a Quote</a>
-      </nav>
+  <!-- ================= AGE GATE ================= -->
+  <div class="age-gate" id="age-gate" role="dialog" aria-modal="true" aria-labelledby="age-title">
+    <div class="age-card">
+      <p class="tag">hold up!</p>
+      <h2 id="age-title">Are you of legal drinking age?</h2>
+      <p>You need to be 21 or older (or the legal drinking age in your state) to enter.</p>
+      <div class="age-actions">
+        <button class="btn btn-spray" data-age="yes">Yes, pour me one</button>
+        <button class="btn btn-outline" data-age="no">Not yet</button>
+      </div>
+      <p class="age-no" hidden>Come back when you're older. We'll keep the tanks cold. 🍺</p>
     </div>
+  </div>
+
+  <!-- ================= HEADER ================= -->
+  <header class="site-header">
+    <a href="#top" class="logo" aria-label="Rolling Mills home">
+      <span class="logo-stencil">ROLLING<br>MILLS</span>
+      <span class="logo-tag">brewery</span>
+    </a>
+    <nav class="site-nav" id="site-nav">
+      <a href="#beers">Beers</a>
+      <a href="#mill">The Mill</a>
+      <a href="#visit">Visit</a>
+      <a href="https://www.instagram.com/rollingmillsbrewery" target="_blank" rel="noopener" class="nav-ig">Instagram ↗</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav"><span></span><span></span></button>
   </header>
 
-  <main>
-    <!-- ============ HERO ============ -->
-    <section class="hero">
-      <div class="container hero-inner">
-        <p class="eyebrow">Since 1998 · ISO 9001:2015 Certified</p>
-        <h1>Steel that holds<br>the world together.</h1>
-        <p class="lead">We hot-roll high-strength TMT bars, structural sections and wire rods for builders, fabricators and infrastructure projects — produced to BIS and international standards.</p>
-        <div class="hero-actions">
-          <a href="#products" class="btn">Explore Products</a>
-          <a href="#contact" class="btn btn-ghost">Request a Quote</a>
+  <main id="top">
+
+    <!-- ================= HERO (pinned) ================= -->
+    <section class="hero wall" id="hero">
+      <div class="hero-stage">
+        <h1 class="hero-word hero-word-top" aria-label="Rolling Mills">ROLLING</h1>
+        <div class="hero-can" data-can="lazy"></div>
+        <div class="hero-word hero-word-bottom" aria-hidden="true">MILLS</div>
+
+        <p class="hero-tag tag">brewed loud in Mumbai</p>
+        <svg class="drip drip-hero" viewBox="0 0 300 60" aria-hidden="true"><path d="M0 6h300v6c-10 0-12 30-16 30s-6-26-14-26-8 40-14 40-6-34-16-34-10 14-16 14-6-14-14-14-6 22-12 22-4-22-14-22-10 30-16 30-8-30-18-30-12 18-18 18-6-18-16-18-6 44-14 44-6-44-14-44-10 16-18 16-8-16-16-16-6 26-12 26-8-26-16-26-10 10-16 10-8-10-18-10z"/></svg>
+
+        <div class="hero-sub">
+          <p>Independent craft beer, brewed in a Kandivali warehouse. Expressive, provocative, and never boring.</p>
+          <a href="#beers" class="btn btn-spray">See the beers</a>
         </div>
-      </div>
-      <div class="hero-rollers" aria-hidden="true">
-        <div class="roller"></div><div class="bar"></div><div class="roller"></div>
+        <p class="scroll-hint">scroll ↓</p>
       </div>
     </section>
 
-    <!-- ============ STATS ============ -->
-    <section class="stats">
-      <div class="container stats-grid">
-        <div class="stat"><span class="stat-num" data-count="250000">0</span><span class="stat-unit">MT</span><p>Annual capacity</p></div>
-        <div class="stat"><span class="stat-num" data-count="25">0</span><span class="stat-unit">+</span><p>Years of rolling</p></div>
-        <div class="stat"><span class="stat-num" data-count="1200">0</span><span class="stat-unit">+</span><p>Dealers &amp; clients</p></div>
-        <div class="stat"><span class="stat-num" data-count="18">0</span><span class="stat-unit">States</span><p>Supply network</p></div>
+    <!-- ================= TAPE MARQUEE ================= -->
+    <div class="tape" aria-hidden="true">
+      <div class="tape-track">
+        <span>EXPRESSIVE ✦ PROVOCATIVE ✦ INDEPENDENT ✦ BREWED IN MUMBAI ✦ </span><span>EXPRESSIVE ✦ PROVOCATIVE ✦ INDEPENDENT ✦ BREWED IN MUMBAI ✦ </span>
       </div>
-    </section>
+    </div>
 
-    <!-- ============ ABOUT ============ -->
-    <section class="section" id="about">
-      <div class="container two-col">
-        <div>
-          <p class="eyebrow">About Us</p>
-          <h2>Built on heat, pressure and precision.</h2>
-          <p>Apex Rolling Mills is an integrated steel re-rolling facility converting billets into high-quality long products. Our modern mill combines a reheating furnace, a continuous rolling line and in-line quenching to deliver consistent mechanical properties in every bar.</p>
-          <p>From residential homes to bridges and power plants, our steel is trusted by contractors, engineers and dealers across the country.</p>
-          <ul class="check-list">
-            <li>Fully automated continuous rolling mill</li>
-            <li>In-house testing laboratory</li>
-            <li>Dedicated logistics and on-time dispatch</li>
-          </ul>
+    <!-- ================= FEATURED BEER STORY (pinned, scrubbed) ================= -->
+    <section class="feature" id="feature" aria-label="Featured beer: Lazy, a New England IPA">
+      <div class="feature-stage">
+        <!-- Panel 1: name -->
+        <div class="f-title" aria-hidden="true"><span>LAZY</span><span>HAZY IPA</span></div>
+        <!-- Panel 2: mouthfeel -->
+        <div class="f-mouth" aria-hidden="true">MOUTHFEEL</div>
+
+        <div class="f-can" data-can="lazy"></div>
+
+        <div class="f-stats panel-card">
+          <p class="tag">this week's pour</p>
+          <h2>Lazy</h2>
+          <p class="f-style">New England IPA</p>
+          <dl>
+            <div><dt>ABV</dt><dd>6.0%</dd></div>
+            <div><dt>Hops</dt><dd>Citra · Simcoe · Azacca · El Dorado</dd></div>
+          </dl>
+          <p>Juicy, hazy and dangerously easy. Dry-hopped hard so you don't have to try hard.</p>
         </div>
-        <div class="about-panel">
-          <div class="panel-card">
-            <h3>Our Mission</h3>
-            <p>To produce safe, strong and sustainable steel at a fair price — every heat, every batch.</p>
-          </div>
-          <div class="panel-card">
-            <h3>Our Vision</h3>
-            <p>To be the most trusted name in rolled steel for the region's builders and industries.</p>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- ============ PRODUCTS ============ -->
-    <section class="section section-alt" id="products">
-      <div class="container">
-        <p class="eyebrow">Products</p>
-        <h2>Our product range</h2>
-        <p class="section-intro">Available in standard and custom lengths. Click a product for sizes and grades.</p>
-
-        <div class="product-grid">
-          <article class="product-card" data-product="tmt">
-            <div class="product-icon"><svg viewBox="0 0 64 64"><rect x="8" y="26" width="48" height="12" rx="6"/><path d="M14 26v12M22 26v12M30 26v12M38 26v12M46 26v12" /></svg></div>
-            <h3>TMT Bars</h3>
-            <p>Fe 500, Fe 500D, Fe 550D high-ductility rebars with superior bond strength.</p>
-            <button class="link-btn">View specs →</button>
-          </article>
-          <article class="product-card" data-product="angles">
-            <div class="product-icon"><svg viewBox="0 0 64 64"><path d="M14 12h10v32h28v10H14z"/></svg></div>
-            <h3>MS Angles</h3>
-            <p>Equal and unequal angles for towers, frames and fabrication.</p>
-            <button class="link-btn">View specs →</button>
-          </article>
-          <article class="product-card" data-product="channels">
-            <div class="product-icon"><svg viewBox="0 0 64 64"><path d="M14 12h36v9H24v22h26v9H14z"/></svg></div>
-            <h3>MS Channels</h3>
-            <p>ISMC channels for structural support, sheds and machinery bases.</p>
-            <button class="link-btn">View specs →</button>
-          </article>
-          <article class="product-card" data-product="beams">
-            <div class="product-icon"><svg viewBox="0 0 64 64"><path d="M12 12h40v8H36v24h16v8H12v-8h16V20H12z"/></svg></div>
-            <h3>I-Beams / Joists</h3>
-            <p>ISMB beams for heavy structural and industrial construction.</p>
-            <button class="link-btn">View specs →</button>
-          </article>
-          <article class="product-card" data-product="flats">
-            <div class="product-icon"><svg viewBox="0 0 64 64"><rect x="8" y="26" width="48" height="12"/></svg></div>
-            <h3>MS Flats &amp; Squares</h3>
-            <p>Precision flats and square bars for fabrication and engineering.</p>
-            <button class="link-btn">View specs →</button>
-          </article>
-          <article class="product-card" data-product="wire">
-            <div class="product-icon"><svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="20" fill="none" stroke-width="5"/><circle cx="32" cy="32" r="12" fill="none" stroke-width="5"/></svg></div>
-            <h3>Wire Rods</h3>
-            <p>Coiled wire rods for drawing, binding wire, nails and fasteners.</p>
-            <button class="link-btn">View specs →</button>
-          </article>
+        <div class="f-notes">
+          <div class="splat splat-a"><span>Juicy<br>mango</span></div>
+          <div class="splat splat-b"><span>Pillow<br>soft</span></div>
+          <div class="splat splat-c"><span>Tropical<br>haze</span></div>
+          <div class="splat splat-d"><span>Low<br>bitter</span></div>
         </div>
       </div>
     </section>
 
-    <!-- Product spec dialog -->
-    <dialog class="spec-dialog" id="spec-dialog">
-      <button class="dialog-close" aria-label="Close">×</button>
-      <h3 id="spec-title"></h3>
-      <p id="spec-desc"></p>
-      <table class="spec-table"><tbody id="spec-body"></tbody></table>
-      <a href="#contact" class="btn" id="spec-quote">Request a quote</a>
-    </dialog>
-
-    <!-- ============ PROCESS ============ -->
-    <section class="section" id="process">
-      <div class="container">
-        <p class="eyebrow">Manufacturing Process</p>
-        <h2>From billet to bar</h2>
-        <ol class="process-steps">
-          <li><span class="step-num">01</span><h3>Raw Material</h3><p>Carefully selected billets are chemically tested before entering the line.</p></li>
-          <li><span class="step-num">02</span><h3>Reheating</h3><p>Billets are heated uniformly to ~1150 °C in a fuel-efficient reheating furnace.</p></li>
-          <li><span class="step-num">03</span><h3>Rolling</h3><p>Roughing, intermediate and finishing stands reduce the section to its final profile.</p></li>
-          <li><span class="step-num">04</span><h3>Quenching</h3><p>In-line thermo-mechanical treatment creates a hard outer case and ductile core.</p></li>
-          <li><span class="step-num">05</span><h3>Cooling &amp; Cutting</h3><p>Bars rest on the cooling bed, then are sheared to length and bundled.</p></li>
-          <li><span class="step-num">06</span><h3>Testing &amp; Dispatch</h3><p>Every lot is tested, tagged with heat numbers and dispatched with test certificates.</p></li>
-        </ol>
+    <!-- ================= BEER WALL (horizontal scroll) ================= -->
+    <section class="beers" id="beers">
+      <div class="beers-track" id="beers-track">
+        <div class="beers-intro">
+          <p class="tag">the line-up</p>
+          <h2 class="spray-title">Pick your <em>poison</em></h2>
+          <p class="beers-hint">keep scrolling →</p>
+        </div>
+        <!-- beer panels are added after this by js/beers.js -->
       </div>
     </section>
 
-    <!-- ============ QUALITY ============ -->
-    <section class="section section-dark" id="quality">
-      <div class="container two-col">
-        <div>
-          <p class="eyebrow">Quality Assurance</p>
-          <h2>Tested before it leaves the mill.</h2>
-          <p>Our NABL-standard laboratory checks every heat for chemistry and mechanical properties. Each bundle carries a heat number so every bar is traceable back to its billet.</p>
-          <div class="cert-row">
-            <span class="cert">ISO 9001:2015</span>
-            <span class="cert">BIS IS 1786</span>
-            <span class="cert">IS 2062</span>
-            <span class="cert">ISO 14001</span>
-          </div>
+    <!-- ================= THE MILL (story) ================= -->
+    <section class="mill metal" id="mill">
+      <svg class="torn torn-top" viewBox="0 0 1440 40" preserveAspectRatio="none" aria-hidden="true"><path d="M0 0h1440v18l-30 8-26-10-40 14-22-6-38 12-30-14-44 10-20-8-36 16-28-12-40 6-24-10-34 14-30-6-42 10-26-12-38 8-22-8-40 16-30-14-36 6-28-6-44 12-24-12-32 10-30-8-40 14-26-10-34 8-28-6-40 12-22-14-38 10-30-6-26 8-44-10-20 14-36-12-30 6-28-8-40 14-24-10-36 8-26-6-30 10-22-8-40 12-34-10-28 6-20-8z"/></svg>
+
+      <div class="mill-inner">
+        <p class="tag">why "rolling mills"?</p>
+        <h2 class="mill-title stencil">
+          <span class="line">A rolling mill</span>
+          <span class="line">reshapes steel.</span>
+          <span class="line accent">We're here to</span>
+          <span class="line accent">reshape beer.</span>
+        </h2>
+        <div class="mill-cols">
+          <p>Rolling Mills is an independent craft brewery in Mumbai, chasing <strong>expressive and provocative</strong> beers. A rolling mill changes the shape of metal. We want to change what people in India think craft beer can be.</p>
+          <p>Everything is brewed in our warehouse in Charkop Industrial Estate, Kandivali. Steel tanks, loud music, and a crew who'll happily argue about hops until closing time.</p>
         </div>
-        <ul class="quality-list">
-          <li><strong>Spectrometer analysis</strong><span>Carbon, sulphur, phosphorus checked for every heat</span></li>
-          <li><strong>Tensile &amp; yield testing</strong><span>Universal testing machine for strength &amp; elongation</span></li>
-          <li><strong>Bend &amp; re-bend tests</strong><span>Ductility verified as per IS 1786</span></li>
-          <li><strong>Dimensional checks</strong><span>Weight per metre and rib geometry monitored online</span></li>
+
+        <ul class="mill-facts">
+          <li><span class="fact-num">2021</span><span>Fired up the brewhouse</span></li>
+          <li><span class="fact-num">100%</span><span>Independent</span></li>
+          <li><span class="fact-num">10+</span><span>Styles on rotation</span></li>
         </ul>
       </div>
-    </section>
 
-    <!-- ============ INDUSTRIES ============ -->
-    <section class="section" id="industries">
-      <div class="container">
-        <p class="eyebrow">Industries Served</p>
-        <h2>Where our steel goes to work</h2>
-        <div class="industry-grid">
-          <div class="industry">Residential Construction</div>
-          <div class="industry">Commercial Buildings</div>
-          <div class="industry">Bridges &amp; Highways</div>
-          <div class="industry">Power &amp; Transmission</div>
-          <div class="industry">Industrial Sheds</div>
-          <div class="industry">Railways &amp; Metro</div>
-          <div class="industry">Fabrication &amp; Engineering</div>
-          <div class="industry">Dams &amp; Irrigation</div>
-        </div>
+      <div class="stickers" aria-hidden="true">
+        <span class="sticker s1">NO BORING BEER</span>
+        <span class="sticker s2">MADE IN MUMBAI</span>
+        <span class="sticker s3">HOPS &gt; HYPE</span>
       </div>
     </section>
 
-    <!-- ============ CTA ============ -->
-    <section class="cta-band">
-      <div class="container cta-inner">
-        <h2>Need steel for your next project?</h2>
-        <a href="#contact" class="btn btn-light">Talk to our sales team</a>
+    <!-- ================= COLLAB ================= -->
+    <section class="collab wall">
+      <div class="collab-inner">
+        <p class="tag">collab drop</p>
+        <h2 class="spray-title">Los Pablos</h2>
+        <p>A limited-edition Mexican lager brewed with our friends at <strong>Simba</strong>. Crisp, bright and gone too soon. Watch our Instagram for the next collab.</p>
+      </div>
+      <div class="collab-can" data-can="pablos"></div>
+    </section>
+
+    <!-- ================= VISIT ================= -->
+    <section class="visit" id="visit">
+      <div class="visit-head">
+        <p class="tag">come thirsty</p>
+        <h2 class="spray-title">Find us</h2>
+      </div>
+      <div class="visit-grid">
+        <article class="location">
+          <span class="loc-num">01</span>
+          <h3>Craft Beer Dispensary</h3>
+          <p>Shop No. 20, Meera Co-Op, New Link Road, Oshiwara, Andheri West, Mumbai 400053</p>
+          <p class="hours">Open 7 days · 10:00 AM – 10:30 PM</p>
+          <div class="loc-actions">
+            <a class="btn btn-spray" href="https://airmenus.in/rollingmills/order" target="_blank" rel="noopener">Order online</a>
+            <a class="btn btn-outline" href="https://maps.google.com/?q=Rolling+Mills+Craft+Beer+Dispensary+Andheri+West" target="_blank" rel="noopener">Directions</a>
+          </div>
+        </article>
+        <article class="location">
+          <span class="loc-num">02</span>
+          <h3>The Brewery</h3>
+          <p>146-BCD, Govt. Industrial Estate, Charkop Road, Kandivali West, Mumbai 400067</p>
+          <p class="hours">Where the magic (and the mess) happens</p>
+          <div class="loc-actions">
+            <a class="btn btn-outline" href="https://maps.google.com/?q=Rolling+Mills+Brewery+Kandivali" target="_blank" rel="noopener">Directions</a>
+          </div>
+        </article>
+        <article class="location location-call">
+          <span class="loc-num">03</span>
+          <h3>Bulk orders &amp; events</h3>
+          <p>Kegs for your party, a beer for your bar, or a collab idea? Give us a shout.</p>
+          <a class="big-phone" href="tel:+917400407711">+91 74004 07711</a>
+        </article>
       </div>
     </section>
 
-    <!-- ============ CONTACT ============ -->
-    <section class="section" id="contact">
-      <div class="container two-col">
-        <div>
-          <p class="eyebrow">Contact</p>
-          <h2>Request a quote</h2>
-          <p>Tell us what you need and our team will get back to you within one business day.</p>
-          <ul class="contact-info">
-            <li><strong>Works</strong>Plot 42, Industrial Area Phase II, Your City – 000000</li>
-            <li><strong>Phone</strong><a href="tel:+910000000000">+91 00000 00000</a></li>
-            <li><strong>Email</strong><a href="mailto:sales@example.com">sales@example.com</a></li>
-            <li><strong>Hours</strong>Mon – Sat, 9:00 AM – 6:00 PM</li>
-          </ul>
-        </div>
-        <form class="quote-form" id="quote-form" novalidate>
-          <div class="field">
-            <label for="name">Full name *</label>
-            <input id="name" name="name" required autocomplete="name">
-          </div>
-          <div class="field-row">
-            <div class="field">
-              <label for="phone">Phone *</label>
-              <input id="phone" name="phone" type="tel" required autocomplete="tel">
-            </div>
-            <div class="field">
-              <label for="email">Email</label>
-              <input id="email" name="email" type="email" autocomplete="email">
-            </div>
-          </div>
-          <div class="field-row">
-            <div class="field">
-              <label for="product">Product</label>
-              <select id="product" name="product">
-                <option>TMT Bars</option>
-                <option>MS Angles</option>
-                <option>MS Channels</option>
-                <option>I-Beams / Joists</option>
-                <option>MS Flats &amp; Squares</option>
-                <option>Wire Rods</option>
-                <option>Other</option>
-              </select>
-            </div>
-            <div class="field">
-              <label for="qty">Quantity (MT)</label>
-              <input id="qty" name="qty" type="number" min="0" step="0.5">
-            </div>
-          </div>
-          <div class="field">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="4" placeholder="Sizes, grade, delivery location…"></textarea>
-          </div>
-          <button type="submit" class="btn btn-full">Send enquiry</button>
-          <p class="form-status" id="form-status" role="status"></p>
-        </form>
-      </div>
+    <!-- ================= INSTAGRAM CTA ================= -->
+    <section class="ig wall">
+      <a href="https://www.instagram.com/rollingmillsbrewery" target="_blank" rel="noopener" class="ig-link">
+        <span class="ig-small tag">follow the fresh drops</span>
+        <span class="ig-handle">@rollingmillsbrewery</span>
+      </a>
     </section>
   </main>
 
-  <!-- ============ FOOTER ============ -->
   <footer class="site-footer">
-    <div class="container footer-grid">
-      <div>
-        <a href="#top" class="logo logo-footer">
-          <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="13" cy="20" r="9"/><circle cx="27" cy="20" r="9"/><rect x="2" y="18" width="36" height="4"/></svg>
-          <span>APEX <strong>ROLLING MILLS</strong></span>
-        </a>
-        <p>Hot-rolled steel long products for construction and industry.</p>
-      </div>
-      <div>
-        <h4>Company</h4>
-        <a href="#about">About</a>
-        <a href="#process">Process</a>
-        <a href="#quality">Quality</a>
-      </div>
-      <div>
-        <h4>Products</h4>
-        <a href="#products">TMT Bars</a>
-        <a href="#products">Structural Steel</a>
-        <a href="#products">Wire Rods</a>
-      </div>
-      <div>
-        <h4>Reach Us</h4>
-        <a href="tel:+910000000000">+91 00000 00000</a>
-        <a href="mailto:sales@example.com">sales@example.com</a>
-      </div>
-    </div>
-    <div class="container footer-bottom">
-      <p>© <span id="year"></span> Apex Rolling Mills. All rights reserved.</p>
-      <a href="#top">Back to top ↑</a>
+    <div class="footer-inner">
+      <p class="footer-logo stencil">ROLLING MILLS</p>
+      <p>Independent craft brewery · Mumbai, India</p>
+      <p class="small">Please drink responsibly. Sale and consumption of alcohol is only for persons of legal drinking age. Don't drink and drive.</p>
+      <p class="small">© <span id="year"></span> Rolling Mills Brewery LLP</p>
     </div>
   </footer>
 
+  <script src="js/vendor/gsap.min.js"></script>
+  <script src="js/vendor/ScrollTrigger.min.js"></script>
+  <script src="js/beers.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
