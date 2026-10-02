@@ -368,6 +368,30 @@ button { font: inherit; }
 .th-track { display: flex; width: max-content; animation: marquee 28s linear infinite; }
 .th-track span { font-family: var(--f-marker); text-transform: uppercase; font-size: clamp(1rem, 1.8vw, 1.35rem); white-space: nowrap; padding-right: .5em; }
 
+/* real pour video (optional): fades in over the photo once assets/video/hero-pour.mp4 loads */
+.th-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .8s; filter: brightness(.55) contrast(1.1) saturate(1.1); }
+.th.has-video .th-video { opacity: 1; }
+.th.has-video .th-bg img, .th.has-video .th-pour { display: none; }
+
+/* drawn tap-and-pour scene */
+.th-pour {
+  position: absolute; z-index: 2; right: 3%; bottom: 62px; height: 86%; aspect-ratio: 600 / 820;
+  pointer-events: none; filter: drop-shadow(0 30px 40px rgba(0,0,0,.6));
+}
+.th-pour::before {
+  content: ""; position: absolute; left: 5%; right: 5%; top: 8%; height: 45%; z-index: -1;
+  background: radial-gradient(ellipse at 50% 60%, rgba(255,46,136,.55), transparent 70%); filter: blur(30px);
+}
+.pour-svg { display: block; width: 100%; height: 100%; overflow: visible; }
+.bubbles circle { fill: rgba(255,255,255,.8); animation: bubble 2.4s linear infinite; }
+.bubbles circle:nth-child(2) { animation-delay: .4s; animation-duration: 2s; }
+.bubbles circle:nth-child(3) { animation-delay: .9s; }
+.bubbles circle:nth-child(4) { animation-delay: 1.3s; animation-duration: 2.8s; }
+.bubbles circle:nth-child(5) { animation-delay: .2s; animation-duration: 1.8s; }
+.bubbles circle:nth-child(6) { animation-delay: 1.7s; }
+.bubbles circle:nth-child(7) { animation-delay: 1.1s; animation-duration: 2.2s; }
+@keyframes bubble { from { transform: translateY(0); opacity: .9; } to { transform: translateY(-220px); opacity: 0; } }
+
 /* header scroll progress line */
 .scroll-progress {
   position: absolute; left: 0; bottom: 0; height: 3px; width: 100%;
@@ -868,6 +892,7 @@ button { font: inherit; }
 
 @media (max-width: 720px) {
   .th-inner { padding-top: 80px; padding-bottom: 190px; }
+  .th-pour { right: -22%; bottom: 120px; height: 56%; opacity: .45; }
   .th-shade { background: linear-gradient(0deg, #060607 0%, rgba(6,6,7,.6) 40%, rgba(6,6,7,.35) 100%); }
   .th-bg img { filter: grayscale(.3) brightness(.55) contrast(1.1); object-position: 45% 40%; }
   .th-title { font-size: clamp(3.6rem, 19vw, 6rem); }
@@ -937,6 +962,7 @@ button { font: inherit; }
 }
 
 @media (prefers-reduced-motion: reduce) {
+  #pour-stream { display: none; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .f-stats { opacity: 1; }
   .splat { transform: none; }

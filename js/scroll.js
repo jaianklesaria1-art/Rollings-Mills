@@ -52,6 +52,26 @@ if (window.gsap && window.ScrollTrigger) {
     gsap.to(".th-title", { yPercent: -18, ease: "none", scrollTrigger: { trigger: ".th", start: "top top", end: "bottom top", scrub: true } });
     gsap.fromTo(".th-ticker", { x: 80 }, { x: -120, ease: "none", scrollTrigger: { ...thScrub } });
 
+    /* ---- 1b+. the pour: pull the tap, fill the pint, swap the glass, repeat ---- */
+    if (document.getElementById("pour-glass")) {
+      gsap.set("#pour-glass", { x: -360 });
+      gsap.set("#pour-beer", { y: 252 });
+      gsap.set("#pour-stream", { scaleY: 0, transformOrigin: "50% 0%" });
+      const pour = gsap.timeline({ repeat: -1, repeatDelay: 0.3, paused: true })
+        .to("#pour-glass", { x: 0, duration: 0.7, ease: "power3.out" })
+        .to("#pour-handle", { rotation: 24, svgOrigin: "300 330", duration: 0.35, ease: "back.out(2)" })
+        .to("#pour-stream", { scaleY: 1, duration: 0.25, ease: "power1.in" }, "-=0.1")
+        .to("#pour-beer", { y: 0, duration: 3.4, ease: "power1.out" }, "-=0.05")
+        .to("#pour-handle", { rotation: 0, svgOrigin: "300 330", duration: 0.3, ease: "power2.in" }, "-=0.3")
+        .set("#pour-stream", { transformOrigin: "50% 100%" }, "<")
+        .to("#pour-stream", { scaleY: 0, duration: 0.25, ease: "power1.in" }, "<")
+        .to("#pour-glass", { x: 360, duration: 0.7, ease: "power3.in" }, "+=1.1")
+        .set("#pour-beer", { y: 252 })
+        .set("#pour-stream", { transformOrigin: "50% 0%" });
+      // only pour while the hero is on screen
+      ScrollTrigger.create({ trigger: ".th", start: "top bottom", end: "bottom top", onToggle: (self) => (self.isActive ? pour.play() : pour.pause()) });
+    }
+
     /* ---- 1c. ABOUT: photos get taped up, perks stack in ---- */
     gsap.from(".snap", {
       y: 120, rotation: (i) => [-25, 20, -10][i], autoAlpha: 0, stagger: 0.15, duration: 0.8, ease: "back.out(1.4)",

@@ -13,7 +13,7 @@ python3 -m http.server 8000   # then visit http://localhost:8000
 |---|---|
 | Age gate | Red neon door. The visitor's answer is remembered in their browser. |
 | Hero: the alley | A 3D graffiti corridor. Scrolling walks you past red lamps until the neon door opens. On desktop, moving the mouse lets you look around. Shows a live "Open now / Closed" badge (Mumbai time). |
-| Brand hero | Dark brewhouse photo with drifting neon smoke, a hand-painted "NO BORING BEER" headline that blurs in, a typewriter-scramble kicker, two buttons, "scroll if you're thirsty" and a pink ticker. A pink line under the header shows scroll progress. |
+| Brand hero | Dark brewhouse photo with drifting neon smoke and a looping animated tap pour (handle pulls, pint fills, glass swaps). Drop a real video at `assets/video/hero-pour.mp4` and it plays full-screen instead. Also: a hand-painted "NO BORING BEER" headline that blurs in, a typewriter-scramble kicker, two buttons, "scroll if you're thirsty" and a pink ticker. A pink line under the header shows scroll progress. |
 | About the taproom | "Our story" kicker that scrambles in, heading that blurs in word by word, taped-up photo collage with an Est. 21 badge, the taproom story, and a grid of what you get: taps, kitchen, events, beer to go, hours, 21+. |
 | Tonight strip | Hazard tape, plus quick links to Taps / Food / Events. Today's event is shown automatically. |
 | Featured beer | Pinned pink-poster section: stats card, "MOUTHFEEL" sweep and tasting-note splats. |

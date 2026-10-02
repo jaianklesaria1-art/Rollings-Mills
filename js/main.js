@@ -298,3 +298,13 @@ if (document.getElementById("book")) {
   }), { threshold: 0.6 });
   els.forEach((el) => io.observe(el));
 })();
+
+// ---------- hero pour video: use it if assets/video/hero-pour.mp4 exists ----------
+(function heroVideo() {
+  const video = document.querySelector(".th-video");
+  if (!video) return;
+  video.addEventListener("loadeddata", () => {
+    document.querySelector(".th").classList.add("has-video");
+    if (!matchMedia("(prefers-reduced-motion: reduce)").matches) video.play().catch(() => {});
+  });
+})();
