@@ -242,8 +242,10 @@ function renderTonight() {
   el.innerHTML = ev
     ? `<strong>${esc(ev.title)}</strong> from ${fmtTime(ev.time)}`
     : `No event tonight. Just good beer. <a href="#events">See what's coming →</a>`;
-  const count = document.getElementById("tap-count");
-  if (count) count.textContent = BEERS.length;
+  ["tap-count", "perk-taps"].forEach((id) => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = BEERS.length;
+  });
 }
 
 /* ---------- run ---------- */
