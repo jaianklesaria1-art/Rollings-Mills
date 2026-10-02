@@ -26,6 +26,9 @@ python3 -m http.server 8000   # then visit http://localhost:8000
 
 On phones there's a sticky bottom bar (Taps · Food · Events · Book). People who have "reduce motion" turned on get the same content without the scroll animations.
 
+## Our Story page (`story.html`)
+A separate page linked from the menu and the About section's "Dig a little deeper" button: a dark hero ("Forged in the Mill") with a tilted brewhouse photo, a "Before the first pour" intro, a full-width photo band ("Crew owned. Crew operated."), a timeline whose line fills as you scroll, a reviews wall, an Instagram strip and a "Join us" call to action. The timeline and reviews come from `TIMELINE` and `REVIEWS` in `js/data.js`. Only add real reviews; with none, the page shows a "Review us on Google" card.
+
 ## Updating content
 Almost everything lives in **`js/data.js`**:
 - `BEERS`: the tap list and beer wall. Add `image: "assets/cans/name.png"` to use a real can photo.
@@ -42,5 +45,6 @@ In `index.html`, find the `about-photos` block and put an `<img src="assets/phot
 - `js/data.js`: content
 - `js/render.js`: draws cans, graffiti tags, tap list, menu and events
 - `js/main.js`: age gate, filters, booking, calendar, spray wall
-- `js/scroll.js`: scroll animations
+- `js/scroll.js`: scroll animations (home page)
+- `story.html` + `js/story.js`: the Our Story page
 - `js/vendor/`: GSAP + ScrollTrigger, bundled so the site doesn't depend on a CDN

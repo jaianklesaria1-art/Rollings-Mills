@@ -86,3 +86,21 @@ const EVENTS = [
   { title: "It's Dark in Here: Halloween", type: "Party", date: "2026-10-31", time: "20:00", end: "23:30",
     desc: "Costumes, neon, and a black IPA you'll only find tonight." },
 ];
+
+/* ---------- OUR STORY: timeline (story.html) ----------
+   when: shown above each milestone (a year, a month, or words like "Today") */
+const TIMELINE = [
+  { when: "Nov 2020", title: "The paperwork", text: "Rolling Mills Brewery LLP is born on paper. No tanks yet. Just a name, a plan, and a lot of opinions about beer." },
+  { when: "2021", title: "Fire up the mill", text: "The brewhouse comes alive in a warehouse in Charkop Industrial Estate, Kandivali. Steel tanks, loud music, and the first batches start rolling out." },
+  { when: "Early days", title: "The first pours", text: "Beers like Lazy, Kura Kura and Shocktown hit Mumbai's taps. People start asking where they can drink them fresh." },
+  { when: "Andheri W", title: "The Dispensary opens", text: "Our Craft Beer Dispensary on New Link Road, Andheri West, opens its doors. A home for fresh pints, poured by the people who brewed them." },
+  { when: "Apr 2025", title: "Los Pablos", text: "A limited-edition Mexican lager brewed with our friends at Simba, launched with a party in Goa." },
+  { when: "Today", title: "Still rolling", text: "Ten-plus styles on rotation, events most nights, and a crew that's only just getting started." },
+];
+
+/* ---------- OUR STORY: reviews (story.html) ----------
+   Paste REAL reviews here (e.g. copied from your Google Business profile).
+   Leave the list empty and the page shows a "leave us a review" card instead.
+   Example: { name: "Priya S.", stars: 5, text: "Best hazy IPA in Mumbai!", source: "Google" } */
+const REVIEWS = [];
+const GOOGLE_REVIEW_URL = "https://www.google.com/search?q=Rolling+Mills+Craft+Beer+Dispensary+Andheri+West+reviews";

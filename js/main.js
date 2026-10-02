@@ -64,7 +64,7 @@ function applyFilter(group) {
   const value = group.querySelector(".chip.is-on").dataset.value;
   [...target.children].forEach((item) => {
     let show = value === "all" || item.dataset[attr] === value;
-    if (target.id === "food-grid" && vegOnly.checked) show = show && item.dataset.veg === "true";
+    if (target.id === "food-grid" && vegOnly && vegOnly.checked) show = show && item.dataset.veg === "true";
     item.classList.toggle("is-hidden", !show);
   });
   refreshScroll();
@@ -80,7 +80,7 @@ document.querySelectorAll(".chips[data-filter]").forEach((group) => {
     applyFilter(group);
   });
 });
-vegOnly.addEventListener("change", () => applyFilter(document.querySelector('[data-filter="food-grid"]')));
+if (vegOnly) vegOnly.addEventListener("change", () => applyFilter(document.querySelector('[data-filter="food-grid"]')));
 
 // ---------- add-to-calendar (.ics download) ----------
 function icsDate(day, time) {
@@ -88,7 +88,7 @@ function icsDate(day, time) {
   const utc = new Date(Date.UTC(day.getFullYear(), day.getMonth(), day.getDate(), h, m) - 330 * 60000);
   return utc.toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, "");
 }
-document.getElementById("event-wall").addEventListener("click", (e) => {
+document.getElementById("event-wall")?.addEventListener("click", (e) => {
   const btn = e.target.closest("[data-ics]");
   if (!btn) return;
   const ev = e.currentTarget._events[Number(btn.dataset.ics)];
@@ -111,62 +111,64 @@ document.getElementById("event-wall").addEventListener("click", (e) => {
 });
 
 // ---------- booking → WhatsApp ----------
-const form = document.getElementById("book");
-const bDate = document.getElementById("b-date");
-const bTime = document.getElementById("b-time");
-const bGuests = document.getElementById("b-guests");
-const bStatus = document.getElementById("book-status");
+if (document.getElementById("book")) {
+  const form = document.getElementById("book");
+  const bDate = document.getElementById("b-date");
+  const bTime = document.getElementById("b-time");
+  const bGuests = document.getElementById("b-guests");
+  const bStatus = document.getElementById("book-status");
 
-const todayISO = (() => { const n = mumbaiNow(); return `${n.getFullYear()}-${String(n.getMonth() + 1).padStart(2, "0")}-${String(n.getDate()).padStart(2, "0")}`; })();
-bDate.min = todayISO;
-bDate.value = todayISO;
+  const todayISO = (() => { const n = mumbaiNow(); return `${n.getFullYear()}-${String(n.getMonth() + 1).padStart(2, "0")}-${String(n.getDate()).padStart(2, "0")}`; })();
+  bDate.min = todayISO;
+  bDate.value = todayISO;
 
-function fillTimes() {
-  // half-hour slots from opening until an hour before closing; past slots hidden for today
-  const now = mumbaiNow();
-  const nowMin = bDate.value === todayISO ? now.getHours() * 60 + now.getMinutes() : -1;
-  const slots = [];
-  for (let m = toMin(HOURS.open); m <= toMin(HOURS.close) - 60; m += 30) {
-    if (m > nowMin) slots.push(`${String(Math.floor(m / 60)).padStart(2, "0")}:${String(m % 60).padStart(2, "0")}`);
+  function fillTimes() {
+    // half-hour slots from opening until an hour before closing; past slots hidden for today
+    const now = mumbaiNow();
+    const nowMin = bDate.value === todayISO ? now.getHours() * 60 + now.getMinutes() : -1;
+    const slots = [];
+    for (let m = toMin(HOURS.open); m <= toMin(HOURS.close) - 60; m += 30) {
+      if (m > nowMin) slots.push(`${String(Math.floor(m / 60)).padStart(2, "0")}:${String(m % 60).padStart(2, "0")}`);
+    }
+    bTime.innerHTML = slots.length
+      ? slots.map((s) => `<option value="${s}" ${s === "20:00" ? "selected" : ""}>${fmtTime(s)}</option>`).join("")
+      : `<option value="">No slots left today</option>`;
   }
-  bTime.innerHTML = slots.length
-    ? slots.map((s) => `<option value="${s}" ${s === "20:00" ? "selected" : ""}>${fmtTime(s)}</option>`).join("")
-    : `<option value="">No slots left today</option>`;
-}
-fillTimes();
-bDate.addEventListener("change", fillTimes);
+  fillTimes();
+  bDate.addEventListener("change", fillTimes);
 
-form.querySelectorAll("[data-step]").forEach((b) => b.addEventListener("click", () => {
-  bGuests.value = Math.min(40, Math.max(1, Number(bGuests.value || 1) + Number(b.dataset.step)));
-}));
+  form.querySelectorAll("[data-step]").forEach((b) => b.addEventListener("click", () => {
+    bGuests.value = Math.min(40, Math.max(1, Number(bGuests.value || 1) + Number(b.dataset.step)));
+  }));
 
-document.getElementById("private-cta").addEventListener("click", () => {
-  document.getElementById("b-occasion").value = "Private party";
-  bGuests.value = Math.max(Number(bGuests.value), 15);
-});
-
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-  let ok = true;
-  form.querySelectorAll("[required]").forEach((input) => {
-    const valid = input.value.trim() !== "";
-    input.closest(".field").classList.toggle("invalid", !valid);
-    ok = ok && valid;
+  document.getElementById("private-cta").addEventListener("click", () => {
+    document.getElementById("b-occasion").value = "Private party";
+    bGuests.value = Math.max(Number(bGuests.value), 15);
   });
-  if (!ok) {
-    bStatus.textContent = "Fill in your name, date and time.";
-    bStatus.className = "form-status error";
-    return;
-  }
-  const data = new FormData(form);
-  const when = new Date(data.get("date") + "T00:00:00").toDateString();
-  const msg = `Hi Rolling Mills! I'd like to book a table.\n` +
-    `Name: ${data.get("name")}\nDate: ${when}\nTime: ${fmtTime(data.get("time"))}\nGuests: ${data.get("guests")}` +
-    (data.get("occasion") ? `\nOccasion: ${data.get("occasion")}` : "");
-  window.open(`https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(msg)}`, "_blank", "noopener");
-  bStatus.textContent = "Opening WhatsApp… send the message and we'll confirm.";
-  bStatus.className = "form-status ok";
-});
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    let ok = true;
+    form.querySelectorAll("[required]").forEach((input) => {
+      const valid = input.value.trim() !== "";
+      input.closest(".field").classList.toggle("invalid", !valid);
+      ok = ok && valid;
+    });
+    if (!ok) {
+      bStatus.textContent = "Fill in your name, date and time.";
+      bStatus.className = "form-status error";
+      return;
+    }
+    const data = new FormData(form);
+    const when = new Date(data.get("date") + "T00:00:00").toDateString();
+    const msg = `Hi Rolling Mills! I'd like to book a table.\n` +
+      `Name: ${data.get("name")}\nDate: ${when}\nTime: ${fmtTime(data.get("time"))}\nGuests: ${data.get("guests")}` +
+      (data.get("occasion") ? `\nOccasion: ${data.get("occasion")}` : "");
+    window.open(`https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(msg)}`, "_blank", "noopener");
+    bStatus.textContent = "Opening WhatsApp… send the message and we'll confirm.";
+    bStatus.className = "form-status ok";
+  });
+}
 
 // ---------- spray wall ----------
 (function sprayWall() {
