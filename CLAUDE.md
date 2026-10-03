@@ -33,6 +33,15 @@ Static site with no build step. GSAP + ScrollTrigger are bundled in `js/vendor/`
 
 **Files:** `js/data.js` (all content: BEERS, FOOD, EVENTS, HOURS, CONTACT, TIMELINE, REVIEWS), `js/render.js` (cans, tags, lists), `js/main.js` (shared UI, guarded so it works on both pages), `js/scroll.js` (home animations), `js/story.js`, `css/styles.css`, `assets/photos/` (the user's 2 brewhouse photos), `assets/video/README.txt`.
 
+## Design system (refined Oct 2026). Keep new work consistent with it.
+- **Fonts (6):** Permanent Marker = headings (`.spray-title`, heroes); Anton = condensed UI titles and cards; Space Grotesk = body; Space Mono (`--f-mono`) = labels, buttons, chips; Sedgwick Ave Display and Rubik Spray Paint = graffiti art only (tags, alley pieces, beer-wall words). Rubik Wet Paint and Saira Stencil were removed.
+- **Section label:** `.marker` = pink mono caps with a glowing rule before it; it scrambles in on scroll. Use `#c8106a` on light paper sections.
+- **Buttons:** one system. `.btn`/`.th-btn` are mono caps; `.btn-spray`/`.th-btn-fill` = pink fill; `.btn-ghost`/`.th-btn-line` = outline. No offset shadows.
+- **Chips:** mono, pill-shaped, pink when active.
+- Background graffiti tags are masked away from headings and intro text (see the REFINEMENT block at the end of styles.css).
+- The menu highlights the section currently on screen. Both pages have Open Graph tags and a favicon; index.html has Brewery/BarOrPub JSON-LD.
+- **21st.dev Magic MCP:** the user asked for it, but it isn't connected and 21st.dev is blocked by the sandbox network. To use it: allow `21st.dev` and `magic.21st.dev` in the environment's network settings, add the API key as an environment variable (e.g. `TWENTY_FIRST_API_KEY`), and add the MCP server. Its components are React/Tailwind, so they need porting to this static HTML/CSS.
+
 ## Rules we've followed. Keep them.
 - **Never fabricate reviews, ratings or customer quotes.** `REVIEWS` stays empty until the user gives real ones.
 - FOOD and EVENTS in data.js are **samples** and must be replaced with the real menu and events. Prices were never added.

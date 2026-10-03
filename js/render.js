@@ -74,7 +74,7 @@ function canSVG(beer) {
     ${blobs}
     <rect x="8" y="40" width="184" height="18" fill="${ink}"/>
     ${drips}
-    <text x="100" y="53" text-anchor="middle" font-family="Saira Stencil One, Impact, sans-serif" font-size="12" letter-spacing="3" fill="${label}">ROLLING MILLS</text>
+    <text x="100" y="53" text-anchor="middle" font-family="Anton, Impact, sans-serif" font-size="12" letter-spacing="3" fill="${label}">ROLLING MILLS</text>
     <text x="100" y="205" text-anchor="middle" font-family="Permanent Marker, Impact, sans-serif" font-size="${long ? 34 : 50}" ${fit} fill="${ink}" transform="rotate(-8 100 200)" stroke="${label}" stroke-width="1.5" paint-order="stroke">${name}</text>
     <rect x="8" y="300" width="184" height="44" fill="${ink}"/>
     <text x="100" y="327" text-anchor="middle" font-family="Space Grotesk, Arial, sans-serif" font-weight="700" font-size="11" letter-spacing="2" fill="${label}">${esc(beer.style.toUpperCase())}</text>

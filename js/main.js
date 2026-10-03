@@ -277,7 +277,7 @@ if (document.getElementById("book")) {
 
 // ---------- typewriter "scramble" for small kicker lines ----------
 (function scrambleText() {
-  const els = document.querySelectorAll("[data-scramble]");
+  const els = document.querySelectorAll("[data-scramble], .marker");
   if (!els.length || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
   const glyphs = "!<>-_\\/[]{}=+*^?#░▒▓01";
   const run = (el) => {
@@ -307,4 +307,18 @@ if (document.getElementById("book")) {
     document.querySelector(".th").classList.add("has-video");
     if (!matchMedia("(prefers-reduced-motion: reduce)").matches) video.play().catch(() => {});
   });
+})();
+
+// ---------- highlight the menu link for the section on screen ----------
+(function activeNav() {
+  const links = [...document.querySelectorAll('.site-nav a[href^="#"]:not(.btn)')];
+  if (!links.length || !("IntersectionObserver" in window)) return;
+  const byId = new Map(links.map((a) => [a.getAttribute("href").slice(1), a]));
+  const io = new IntersectionObserver((entries) => entries.forEach((e) => {
+    const link = byId.get(e.target.id);
+    if (!link || !e.isIntersecting) return;
+    links.forEach((a) => { a.classList.toggle("is-active", a === link); a.removeAttribute("aria-current"); });
+    link.setAttribute("aria-current", "true");
+  }), { rootMargin: "-45% 0px -50% 0px" });
+  byId.forEach((_, id) => { const sec = document.getElementById(id); if (sec) io.observe(sec); });
 })();
