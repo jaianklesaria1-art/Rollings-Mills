@@ -13,6 +13,37 @@ if (window.gsap && window.ScrollTrigger) {
     gsap.to(".th-bg", { yPercent: 8, scale: 1.04, ease: "none", scrollTrigger: { trigger: ".th", start: "top top", end: "bottom top", scrub: true } });
     gsap.to(".th-inner", { yPercent: -12, autoAlpha: 0.2, ease: "none", scrollTrigger: { trigger: ".th", start: "center center", end: "bottom top", scrub: true } });
 
+    // tap takeover: pin the stage, pour one beer per scroll step
+    if (document.getElementById("pint-beer")) {
+      const n = POUR_BEERS.length;
+      let current = 0;
+      const EMPTY = 372; // how far the beer drops to look like an empty glass
+      gsap.set("#pint-beer", { y: EMPTY });
+      const switchTo = (i) => {
+        current = i;
+        pourInfo(i);
+        const c = pourColours(i);
+        gsap.to("#liq-top", { attr: { "stop-color": c.top }, duration: 0.6 });
+        gsap.to("#liq-bot", { attr: { "stop-color": c.bot }, duration: 0.6 });
+        gsap.to("#foam-body, #foam-top", { attr: { fill: c.foam }, duration: 0.6 });
+        gsap.to("#pint-haze", { opacity: c.haze, duration: 0.6 });
+        gsap.fromTo("#pour-word", { clipPath: "inset(-20% 100% -20% 0)" }, { clipPath: "inset(-20% 0% -20% 0)", duration: 0.9, ease: "power2.out" });
+        gsap.fromTo(".pour-info > *", { y: 18, autoAlpha: 0 }, { y: 0, autoAlpha: 1, stagger: 0.05, duration: 0.5, ease: "power3.out" });
+      };
+      ScrollTrigger.create({
+        trigger: ".pour", start: "top top", end: () => "+=" + innerHeight * n * 0.9, pin: true, scrub: true,
+        onUpdate: (self) => {
+          const pos = self.progress * n;
+          const i = Math.min(n - 1, Math.floor(pos));
+          if (i !== current) switchTo(i);
+          const local = Math.min(1, (pos - i) * 1.7); // glass is full by ~60% of each step
+          const fill = 1 - Math.pow(1 - local, 2);
+          gsap.set("#pint-beer", { y: EMPTY * (1 - fill) });
+          gsap.set(".pint", { rotation: (pos - i - 0.5) * -3 });
+        },
+      });
+    }
+
     // section headings
     gsap.utils.toArray(".section-head, .split-copy, .join-title").forEach((el) => {
       gsap.from(el.children.length ? el.children : el, {

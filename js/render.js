@@ -127,6 +127,37 @@ function paintTags(el) {
   el.innerHTML = html;
 }
 
+
+/* ---------- tap takeover: fills in the details for one beer ---------- */
+const POUR_BEERS = BEERS.slice(0, 7);
+function pourInfo(i) {
+  const b = POUR_BEERS[i];
+  if (!b || !document.getElementById("pour-name")) return;
+  const pair = FOOD.find((f) => f.pair === b.id);
+  document.getElementById("pour-n").textContent = String(i + 1).padStart(2, "0");
+  document.getElementById("pour-name").textContent = b.name;
+  document.getElementById("pour-word").textContent = b.name;
+  document.getElementById("pour-style").textContent = b.style + (b.abv ? " · " + b.abv : "");
+  document.getElementById("pour-notes").textContent = b.notes;
+  document.getElementById("pour-pair").textContent = pair ? "Pairs with " + pair.name : "";
+  document.querySelectorAll("#pour-dots i").forEach((d, k) => d.classList.toggle("on", k === i));
+}
+function pourColours(i) {
+  const [top, bot, foam, haze] = POUR_BEERS[i].pour || ["#f2b544", "#d0801c", "#fff6e3", 0];
+  return { top, bot, foam, haze: 0.04 + haze * 0.3 };
+}
+function setupPour() {
+  const total = document.getElementById("pour-total");
+  if (!total) return;
+  total.textContent = String(POUR_BEERS.length).padStart(2, "0");
+  document.getElementById("pour-dots").innerHTML = POUR_BEERS.map(() => "<i></i>").join("");
+  pourInfo(0);
+  const c = pourColours(0);
+  document.getElementById("liq-top").setAttribute("stop-color", c.top);
+  document.getElementById("liq-bot").setAttribute("stop-color", c.bot);
+}
+
+setupPour();
 renderTaps();
 renderFood();
 renderEvents();

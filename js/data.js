@@ -17,33 +17,34 @@ const HOURS = { open: "10:00", close: "22:30" };
    colors: [can label, spray accent, label text]
    hl:     highlight colour used on the site
    type:   used by the tap-list filter (IPA, Lager, Dark, Wheat)
+   pour:   [glass colour top, bottom, foam colour, haze 0-1] for the pint in the scroll animation
    image:  optional, e.g. "assets/cans/lazy.png" to use a real photo instead of the drawn can */
 const BEERS = [
-  { id: "lazy", name: "Lazy", style: "New England IPA", type: "IPA", abv: "6.0%",
+  { id: "lazy", pour: ["#f7b544", "#d9811a", "#fff6e3", 0.7], name: "Lazy", style: "New England IPA", type: "IPA", abv: "6.0%",
     notes: "Juicy and hazy, dry-hopped with Citra, Simcoe, Azacca and El Dorado.",
     colors: ["#e4ff1a", "#ff2e88", "#121212"], hl: "#e4ff1a" },
-  { id: "kura", name: "Kura Kura", style: "Japanese Rice Lager", type: "Lager",
+  { id: "kura", pour: ["#f6e08a", "#e5bd45", "#fffaf0", 0], name: "Kura Kura", style: "Japanese Rice Lager", type: "Lager",
     notes: "Super clean and crisp. Brewed with Japanese rice and Japanese hops.",
     colors: ["#f4f1e8", "#ff2036", "#121212"], hl: "#ff4d5e" },
-  { id: "shocktown", name: "Shocktown", style: "American IPA", type: "IPA",
+  { id: "shocktown", pour: ["#efa63a", "#c2700f", "#fff3dc", 0.15], name: "Shocktown", style: "American IPA", type: "IPA",
     notes: "Big pine, bright citrus and a bitter bite that wakes you up.",
     colors: ["#29e3ff", "#ffc21a", "#121212"], hl: "#29e3ff" },
-  { id: "pastry", name: "Pastry Stout", style: "Pastry Stout", type: "Dark",
+  { id: "pastry", pour: ["#3a210f", "#120904", "#d8b48a", 0], name: "Pastry Stout", style: "Pastry Stout", type: "Dark",
     notes: "Super indulgent, with big notes of chocolate, vanilla and coffee. Dessert in a glass.",
     colors: ["#3b2418", "#ffb347", "#f4f1e8"], hl: "#ffb347" },
-  { id: "whitenoise", name: "White Noise", style: "Witbier", type: "Wheat",
+  { id: "whitenoise", pour: ["#f8e6a4", "#e9c869", "#fffdf6", 0.75], name: "White Noise", style: "Witbier", type: "Wheat",
     notes: "Soft wheat, orange peel and coriander. Turn the volume down.",
     colors: ["#ffffff", "#8b5cf6", "#121212"], hl: "#c4b5fd" },
-  { id: "bandido", name: "El Bandido", style: "Mexican Lager", type: "Lager",
+  { id: "bandido", pour: ["#f5d469", "#e0ab2c", "#fffaf0", 0], name: "El Bandido", style: "Mexican Lager", type: "Lager",
     notes: "Light, crisp and made for squeezing a lime into.",
     colors: ["#16a34a", "#fde047", "#f4f1e8"], hl: "#4ade80" },
-  { id: "guns", name: "Guns For Hands", style: "American IPA", type: "IPA",
+  { id: "guns", pour: ["#eea036", "#b9650e", "#fff1d6", 0.2], name: "Guns For Hands", style: "American IPA", type: "IPA",
     notes: "Resinous, dank and loud. Hops first, questions later.",
     colors: ["#ff2e88", "#121212", "#121212"], hl: "#ff2e88" },
-  { id: "slippery", name: "Slippery When Wet", style: "Dunkelweizen", type: "Wheat",
+  { id: "slippery", pour: ["#8a4a1f", "#4a2209", "#ead2b0", 0.4], name: "Slippery When Wet", style: "Dunkelweizen", type: "Wheat",
     notes: "Dark wheat beer with banana, clove and a little toasty bread.",
     colors: ["#5b3a29", "#29e3ff", "#f4f1e8"], hl: "#7dd3fc" },
-  { id: "time", name: "Time Theorists", style: "Belgian Dubbel", type: "Dark",
+  { id: "time", pour: ["#8f3512", "#3e1406", "#e6c79e", 0], name: "Time Theorists", style: "Belgian Dubbel", type: "Dark",
     notes: "Dark fruit, caramel and a warm Belgian yeast kick.",
     colors: ["#1e1b4b", "#ffc21a", "#f4f1e8"], hl: "#ffc21a" },
 ];

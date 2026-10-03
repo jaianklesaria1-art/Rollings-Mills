@@ -15,6 +15,7 @@ Read this first. It records what's been built, why, and what's still open, so a 
 - **The focus is the TAPROOM** (the place, the experience, food and events), not just the beers.
 - **Palette:** black `#0b0b0b`, bone `#f2eee6`, brewhouse-sign gold `#e9b44c` (deep gold `#9a6a12` on light backgrounds). No neon pink or cyan. Sections alternate dark and light.
 - **Type:** Anton (all headings, uppercase) + one Permanent Marker gold "brush" accent phrase per heading (`.brush`); Space Grotesk body; Space Mono for labels, buttons, chips and nav.
+- **Theme is still graffiti + warehouse**, but done with real textures inside the palette: concrete (`.concrete`), whitewashed brick (`.brick`), stencilled warehouse floor numbers (`data-num` → `::after`, font Big Shoulders Stencil Display), hazard-tape dividers (`.hazard`), gold spray accents with overspray and drips (`.brush`), and faint sprayed wall tags.
 - **No drawn cans, splats, stickers, 3D alley or cartoon tap-pour.** Use real photos; `assets/video/hero-pour.mp4` (if added) replaces the hero photo.
 - Reference site: thebeerzombies.com. Copy its layout and feel, never its copy, footage or green branding.
 - The user loves the **"Leave your tag" spray wall** (kept, recoloured gold, bone, red and blue).
@@ -23,7 +24,7 @@ Read this first. It records what's been built, why, and what's still open, so a 
 ## What's built (branch `claude/ecstatic-franklin-mdzb7c`)
 Static site with no build step. GSAP + ScrollTrigger are bundled in `js/vendor/`.
 
-**index.html, in order:** age gate → hero (full-bleed brewhouse photo, "Your local taproom / brewed in Mumbai", live open/closed chip, buttons, mono ticker) → **The Taproom** (photo + "Pull up a stool", facts grid, tonight card) → **On tap** (clean list, style filters, pairings) → **Food** (two-column menu, category chips, veg toggle) → **Events** (date rows, RSVP via WhatsApp, .ics, private-party box `#private-cta`) → **Story teaser** (tilted B&W photo, Est. 21 badge, link to story.html) → **Visit** (taproom and brewhouse cards + WhatsApp booking form `#book`) → **Leave your tag** → Join → footer → mobile action bar.
+**index.html, in order:** age gate → hero (full-bleed brewhouse photo, "Your local taproom / brewed in Mumbai", live open/closed chip, buttons, mono ticker) → **The Taproom** (photo + "Pull up a stool", facts grid, tonight card) → **Tap takeover** (`#taps`, pinned beer scroll: a realistic SVG pint refills in each beer's colour from `BEERS[].pour`, the beer name is sprayed on the wall behind, details and progress dots update; first 7 beers) → **Full tap list** (`#tap-board`, clean list, style filters, pairings) → **Food** (two-column menu, category chips, veg toggle) → **Events** (date rows, RSVP via WhatsApp, .ics, private-party box `#private-cta`) → **Story teaser** (tilted B&W photo, Est. 21 badge, link to story.html) → **Visit** (taproom and brewhouse cards + WhatsApp booking form `#book`) → **Leave your tag** → Join → footer → mobile action bar.
 
 **story.html:** hero "Forged in the Mill", "Before the first pour", photo band "Crew owned. Crew operated.", scroll-filled timeline (`TIMELINE`), reviews (`REVIEWS`, CTA when empty), an Instagram strip (photos + text tiles), Join.
 

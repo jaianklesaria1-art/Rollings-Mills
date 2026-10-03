@@ -9,7 +9,7 @@ python3 -m http.server 8000   # then visit http://localhost:8000
 ```
 
 ## What's on the page
-**Home (`index.html`):** hero with a live open/closed badge → The Taproom → On tap (filterable) → Food (filterable, veg toggle) → Events (RSVP on WhatsApp, add to calendar) → Our story teaser → Visit + WhatsApp booking → Leave your tag (spray wall) → footer. Phones get a bottom bar (On tap · Food · Events · Book).
+**Home (`index.html`):** hero with a live open/closed badge → The Taproom → Tap takeover (pinned scroll that pours each beer into a pint) → Full tap list (filterable) → Food (filterable, veg toggle) → Events (RSVP on WhatsApp, add to calendar) → Our story teaser → Visit + WhatsApp booking → Leave your tag (spray wall) → footer. Phones get a bottom bar (On tap · Food · Events · Book).
 
 **Our Story (`story.html`):** hero, "Before the first pour", photo band, a scroll-filled timeline, reviews, Instagram strip.
 
@@ -17,7 +17,7 @@ Look: black, bone and brewhouse gold; Anton headings with one gold brush accent;
 
 ## Updating content
 Almost everything lives in **`js/data.js`**:
-- `BEERS`: the tap list and beer wall. Add `image: "assets/cans/name.png"` to use a real can photo.
+- `BEERS`: the tap takeover and tap list. `pour` sets the glass colours [top, bottom, foam, haze].
 - `FOOD`: menu items (`veg: true/false`, `pair:` a beer id).
 - `EVENTS`: one-off events (`date: "2026-10-31"`) or weekly ones (`weekly: 5` means every Friday).
 - `HOURS`, `CONTACT`: opening hours, WhatsApp number, links.
