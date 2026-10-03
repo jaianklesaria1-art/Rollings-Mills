@@ -175,7 +175,7 @@ if (document.getElementById("book")) {
   const canvas = document.getElementById("spray-canvas");
   if (!canvas) return;
   const ctx = canvas.getContext("2d");
-  let color = "#ff2e88";
+  let color = "#e9b44c";
   let spraying = false;
   let last = null;
   const drips = [];
@@ -253,7 +253,7 @@ if (document.getElementById("book")) {
     o.fillStyle = "#18181c"; o.fillRect(0, 0, out.width, out.height);
     o.drawImage(canvas, 0, 0);
     o.font = `${28 * (out.width / canvas.clientWidth)}px "Sedgwick Ave Display", cursive`;
-    o.fillStyle = "#ffc21a";
+    o.fillStyle = "#e9b44c";
     o.fillText("@rollingmillsbrewery", 20, out.height - 24);
     const a = document.createElement("a");
     a.href = out.toDataURL("image/png");

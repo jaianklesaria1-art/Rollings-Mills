@@ -3,33 +3,34 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Rolling Mills | Craft Beer Taproom, Food &amp; Events, Mumbai</title>
-  <meta name="description" content="Rolling Mills is an independent Mumbai craft brewery and taproom. Fresh beer on tap, bar food, live music, quiz nights and events in Andheri West.">
-  <meta name="theme-color" content="#0a0a0c">
+  <title>Rolling Mills Taproom | Craft Beer, Food &amp; Events in Andheri West, Mumbai</title>
+  <meta name="description" content="Rolling Mills is an independent Mumbai craft brewery and taproom. Fresh beer straight from our tanks, bar food and events most nights on New Link Road, Andheri West.">
+  <meta name="theme-color" content="#0b0b0b">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Rolling Mills Brewery">
-  <meta property="og:title" content="Rolling Mills | Craft Beer Taproom, Food &amp; Events, Mumbai">
-  <meta property="og:description" content="Independent Mumbai craft brewery and taproom. Fresh beer on tap, bar food, live music, quiz nights and events in Andheri West.">
+  <meta property="og:title" content="Rolling Mills Taproom | Andheri West, Mumbai">
+  <meta property="og:description" content="Fresh craft beer straight from our tanks, bar food and events most nights.">
   <meta property="og:image" content="assets/photos/brewhouse-wide.webp">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230a0a0c'/%3E%3Ctext x='32' y='43' font-family='Impact,Anton,sans-serif' font-size='30' text-anchor='middle' fill='%23ff2e88'%3ERM%3C/text%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230b0b0b'/%3E%3Ctext x='32' y='43' font-family='Impact,Anton,sans-serif' font-size='30' text-anchor='middle' fill='%23e9b44c'%3ERM%3C/text%3E%3C/svg%3E">
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": ["Brewery", "BarOrPub"], "name": "Rolling Mills Brewery", "description": "Independent craft brewery and taproom in Mumbai. Fresh beer on tap, bar food and events.", "foundingDate": "2021", "telephone": "+91 74004 07711", "sameAs": ["https://www.instagram.com/rollingmillsbrewery"], "servesCuisine": "Bar food", "openingHours": "Mo-Su 10:00-22:30", "address": {"@type": "PostalAddress", "streetAddress": "Shop No. 20, Meera Co-Op, New Link Road, Oshiwara, Andheri West", "addressLocality": "Mumbai", "addressRegion": "Maharashtra", "postalCode": "400053", "addressCountry": "IN"}}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Permanent+Marker&family=Rubik+Spray+Paint&family=Sedgwick+Ave+Display&family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Permanent+Marker&family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="assets/photos/brewhouse-wide.webp">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body class="is-locked">
-  <a href="#taps" class="skip-link">Skip to the beer</a>
+  <a href="#taproom" class="skip-link">Skip to content</a>
 
   <!-- ================= AGE GATE ================= -->
   <div class="age-gate" id="age-gate" role="dialog" aria-modal="true" aria-labelledby="age-title">
-    <div class="age-door">
-      <p class="marker">hold up!</p>
+    <div class="age-card">
+      <p class="marker">Rolling Mills · Mumbai</p>
       <h2 id="age-title">Are you of legal drinking age?</h2>
-      <p>You need to be 21 or older (or the legal drinking age in your state) to come in.</p>
+      <p>You need to be 21 or older (or the legal drinking age in your state) to visit this site.</p>
       <div class="age-actions">
-        <button class="btn btn-spray" data-age="yes" type="button">Yes, let me in</button>
+        <button class="btn btn-spray" data-age="yes" type="button">Yes, come in</button>
         <button class="btn btn-ghost" data-age="no" type="button">Not yet</button>
       </div>
       <p class="age-no" hidden>Come back when you're older. We'll keep the tanks cold.</p>
@@ -39,14 +40,15 @@
   <!-- ================= HEADER ================= -->
   <header class="site-header">
     <a href="#top" class="logo" aria-label="Rolling Mills home">
-      <span class="logo-tag">Rolling Mills</span>
-      <span class="logo-sub">taproom · mumbai</span>
+      <span class="logo-word">Rolling Mills</span>
+      <span class="logo-sub">Taproom · Mumbai</span>
     </a>
     <nav class="site-nav" id="site-nav" aria-label="Main">
-      <a href="story.html">Our Story</a>
+      <a href="#taproom">Taproom</a>
       <a href="#taps">On Tap</a>
       <a href="#food">Food</a>
       <a href="#events">Events</a>
+      <a href="story.html">Our Story</a>
       <a href="#visit">Visit</a>
       <a href="#book" class="btn btn-spray btn-small">Book a table</a>
     </nav>
@@ -56,299 +58,75 @@
 
   <main id="top">
 
-    <!-- ================= HERO: walk down the graffiti alley ================= -->
-    <section class="alley" id="hero" aria-label="Welcome">
-      <div class="alley-view">
-        <div class="alley-room">
-          <!-- left wall -->
-          <div class="a-plane a-left">
-            <div class="wall-tags" data-tags="pink,cyan,white" data-count="60" id="wl"></div>
-            <span class="piece piece-l1">HOPS</span>
-            <span class="piece piece-l2">RM</span>
-            <span class="piece piece-l3">DRINK LOCAL</span>
-            <i class="tube tube-1"></i><i class="tube tube-2"></i>
-          </div>
-          <!-- right wall -->
-          <div class="a-plane a-right">
-            <div class="wall-tags" data-tags="pink,cyan,gold" data-count="60" id="wr"></div>
-            <span class="piece piece-r1">MILLS</span>
-            <span class="piece piece-r2">COLD ONE</span>
-            <span class="piece piece-r3">★ RM CREW ★</span>
-            <i class="tube tube-1"></i><i class="tube tube-2"></i>
-          </div>
-          <div class="a-plane a-floor"></div>
-          <div class="a-plane a-ceiling"><i class="pipe pipe-1"></i><i class="pipe pipe-2"></i></div>
-          <!-- hanging red lamps -->
-          <div class="a-lamp" style="--z:-450px"></div>
-          <div class="a-lamp" style="--z:-1050px"></div>
-          <div class="a-lamp" style="--z:-1650px"></div>
-          <div class="a-lamp" style="--z:-2250px"></div>
-          <!-- back wall with the neon door -->
-          <div class="a-plane a-back">
-            <span class="back-x back-x1">✕</span><span class="back-x back-x2">✕</span>
-            <p class="back-kicker">it's dark in here</p>
-            <h1 class="back-title"><span>Rolling</span> <span>Mills</span></h1>
-            <div class="door">
-              <div class="door-light"></div>
-              <div class="door-leaf"><span>RM</span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="alley-flash" aria-hidden="true"></div>
-
-      <div class="alley-ui">
-        <p class="status-chip" id="open-status">Taproom · Andheri West</p>
-        <p class="alley-lead">Independent craft beer, bar food &amp; loud nights.<br>Brewed in Mumbai. Poured by the crew who made it.</p>
-        <div class="alley-actions">
-          <a href="#taps" class="btn btn-spray">What's on tap</a>
-          <a href="#book" class="btn btn-ghost">Book a table</a>
-        </div>
-      </div>
-      <p class="walk-hint" aria-hidden="true">walk in <span>↓</span></p>
-    </section>
-
-    <!-- ================= BRAND HERO (taproom) ================= -->
-    <section class="th" id="brand" aria-labelledby="th-title">
+    <!-- ================= HERO ================= -->
+    <section class="th" aria-labelledby="hero-title">
       <div class="th-bg" aria-hidden="true">
         <img src="assets/photos/brewhouse-wide.webp" alt="">
-        <!-- Drop your own pour video at assets/video/hero-pour.mp4 and it plays here (the drawn tap scene hides itself) -->
+        <!-- Drop your own taproom/pour video at assets/video/hero-pour.mp4 and it plays here -->
         <video class="th-video" muted loop playsinline preload="auto"><source src="assets/video/hero-pour.mp4" type="video/mp4"></video>
       </div>
-      <div class="th-smoke" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
       <div class="th-shade" aria-hidden="true"></div>
-      <div class="th-pour" aria-hidden="true">
-        <svg class="pour-svg" viewBox="0 0 600 820" preserveAspectRatio="xMidYMax meet">
-          <defs>
-            <linearGradient id="chrome" x1="0" x2="1"><stop offset="0" stop-color="#4a4a4f"/><stop offset=".3" stop-color="#e6e6ea"/><stop offset=".55" stop-color="#8d8d93"/><stop offset=".8" stop-color="#f4f4f6"/><stop offset="1" stop-color="#3a3a3f"/></linearGradient>
-            <linearGradient id="chromeV" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f4f4f6"/><stop offset=".5" stop-color="#8d8d93"/><stop offset="1" stop-color="#3a3a3f"/></linearGradient>
-            <linearGradient id="handleShine" x1="0" x2="1"><stop offset="0" stop-color="#000" stop-opacity=".45"/><stop offset=".25" stop-color="#fff" stop-opacity=".22"/><stop offset=".45" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".5"/></linearGradient>
-            <linearGradient id="beer" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffcf4a"/><stop offset=".5" stop-color="#f2a516"/><stop offset="1" stop-color="#b8660a"/></linearGradient>
-            <linearGradient id="stream" x1="0" x2="1"><stop offset="0" stop-color="#d98a0e"/><stop offset=".45" stop-color="#ffe08a"/><stop offset="1" stop-color="#c97a0a"/></linearGradient>
-            <linearGradient id="glassShine" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity=".35"/><stop offset=".12" stop-color="#fff" stop-opacity=".05"/><stop offset=".8" stop-color="#fff" stop-opacity="0"/><stop offset=".92" stop-color="#fff" stop-opacity=".25"/><stop offset="1" stop-color="#fff" stop-opacity=".05"/></linearGradient>
-            <clipPath id="glassClip"><path d="M228 512 L372 512 L354 776 L246 776 Z"/></clipPath>
-          </defs>
-
-          <!-- tap tower -->
-          
-          <g class="tap-handle" data-cx="100">
-            <rect x="79" y="118" width="42" height="206" rx="9" fill="#f4f1e8" stroke="#000" stroke-opacity=".5" stroke-width="2"/>
-            <rect x="79" y="118" width="42" height="34" rx="9" fill="#121212"/>
-            <circle cx="94" cy="190" r="9" fill="#ff2036"/><circle cx="109" cy="250" r="6" fill="#ff2036"/><circle cx="92" cy="285" r="4" fill="#ff2036"/>
-            <text x="100" y="222" transform="rotate(-90 100 222)" text-anchor="middle" font-family="Permanent Marker, Impact, sans-serif" font-size="22" fill="#121212" stroke="#f4f1e8" stroke-width="1" paint-order="stroke">KURA</text>
-            <rect x="79" y="118" width="42" height="206" rx="9" fill="url(#handleShine)"/>
-            <rect x="91" y="318" width="18" height="16" fill="url(#chrome)"/>
-          </g>
-          <g class="tap-handle" data-cx="200">
-            <rect x="179" y="118" width="42" height="206" rx="9" fill="#29e3ff" stroke="#000" stroke-opacity=".5" stroke-width="2"/>
-            <rect x="179" y="118" width="42" height="34" rx="9" fill="#121212"/>
-            <circle cx="194" cy="190" r="9" fill="#ffc21a"/><circle cx="209" cy="250" r="6" fill="#ffc21a"/><circle cx="192" cy="285" r="4" fill="#ffc21a"/>
-            <text x="200" y="222" transform="rotate(-90 200 222)" text-anchor="middle" font-family="Permanent Marker, Impact, sans-serif" font-size="22" fill="#121212" stroke="#29e3ff" stroke-width="1" paint-order="stroke">SHOCK</text>
-            <rect x="179" y="118" width="42" height="206" rx="9" fill="url(#handleShine)"/>
-            <rect x="191" y="318" width="18" height="16" fill="url(#chrome)"/>
-          </g>
-          <g class="tap-handle" id="pour-handle" data-cx="300">
-            <rect x="279" y="118" width="42" height="206" rx="9" fill="#e4ff1a" stroke="#000" stroke-opacity=".5" stroke-width="2"/>
-            <rect x="279" y="118" width="42" height="34" rx="9" fill="#121212"/>
-            <circle cx="294" cy="190" r="9" fill="#ff2e88"/><circle cx="309" cy="250" r="6" fill="#ff2e88"/><circle cx="292" cy="285" r="4" fill="#ff2e88"/>
-            <text x="300" y="222" transform="rotate(-90 300 222)" text-anchor="middle" font-family="Permanent Marker, Impact, sans-serif" font-size="22" fill="#121212" stroke="#e4ff1a" stroke-width="1" paint-order="stroke">LAZY</text>
-            <rect x="279" y="118" width="42" height="206" rx="9" fill="url(#handleShine)"/>
-            <rect x="291" y="318" width="18" height="16" fill="url(#chrome)"/>
-          </g>
-          <g class="tap-handle" data-cx="400">
-            <rect x="379" y="118" width="42" height="206" rx="9" fill="#ff2e88" stroke="#000" stroke-opacity=".5" stroke-width="2"/>
-            <rect x="379" y="118" width="42" height="34" rx="9" fill="#121212"/>
-            <circle cx="394" cy="190" r="9" fill="#121212"/><circle cx="409" cy="250" r="6" fill="#121212"/><circle cx="392" cy="285" r="4" fill="#121212"/>
-            <text x="400" y="222" transform="rotate(-90 400 222)" text-anchor="middle" font-family="Permanent Marker, Impact, sans-serif" font-size="22" fill="#121212" stroke="#ff2e88" stroke-width="1" paint-order="stroke">GUNS</text>
-            <rect x="379" y="118" width="42" height="206" rx="9" fill="url(#handleShine)"/>
-            <rect x="391" y="318" width="18" height="16" fill="url(#chrome)"/>
-          </g>
-          <g class="tap-handle" data-cx="500">
-            <rect x="479" y="118" width="42" height="206" rx="9" fill="#3b2418" stroke="#000" stroke-opacity=".5" stroke-width="2"/>
-            <rect x="479" y="118" width="42" height="34" rx="9" fill="#f4f1e8"/>
-            <circle cx="494" cy="190" r="9" fill="#ffb347"/><circle cx="509" cy="250" r="6" fill="#ffb347"/><circle cx="492" cy="285" r="4" fill="#ffb347"/>
-            <text x="500" y="222" transform="rotate(-90 500 222)" text-anchor="middle" font-family="Permanent Marker, Impact, sans-serif" font-size="22" fill="#f4f1e8" stroke="#3b2418" stroke-width="1" paint-order="stroke">STOUT</text>
-            <rect x="479" y="118" width="42" height="206" rx="9" fill="url(#handleShine)"/>
-            <rect x="491" y="318" width="18" height="16" fill="url(#chrome)"/>
-          </g>
-          <rect x="30" y="326" width="540" height="30" rx="15" fill="url(#chromeV)"/>
-          <rect x="30" y="326" width="540" height="8" rx="4" fill="#fff" opacity=".35"/>
-          
-          <g class="faucet">
-            <rect x="87" y="352" width="26" height="34" rx="5" fill="url(#chrome)"/>
-            <path d="M94 384 h12 l-2 40 h-8 z" fill="url(#chrome)"/>
-          </g>
-          <g class="faucet">
-            <rect x="187" y="352" width="26" height="34" rx="5" fill="url(#chrome)"/>
-            <path d="M194 384 h12 l-2 40 h-8 z" fill="url(#chrome)"/>
-          </g>
-          <g class="faucet">
-            <rect x="287" y="352" width="26" height="34" rx="5" fill="url(#chrome)"/>
-            <path d="M294 384 h12 l-2 40 h-8 z" fill="url(#chrome)"/>
-          </g>
-          <g class="faucet">
-            <rect x="387" y="352" width="26" height="34" rx="5" fill="url(#chrome)"/>
-            <path d="M394 384 h12 l-2 40 h-8 z" fill="url(#chrome)"/>
-          </g>
-          <g class="faucet">
-            <rect x="487" y="352" width="26" height="34" rx="5" fill="url(#chrome)"/>
-            <path d="M494 384 h12 l-2 40 h-8 z" fill="url(#chrome)"/>
-          </g>
-
-          <!-- the pour -->
-          <g id="pour-stream">
-            <rect x="293" y="424" width="14" height="352" rx="7" fill="url(#stream)" opacity=".95"/>
-            <rect x="297" y="424" width="3" height="352" fill="#fff" opacity=".6"/>
-          </g>
-
-          <!-- pint glass (slides in and out) -->
-          <g id="pour-glass">
-            <g clip-path="url(#glassClip)">
-              <rect x="220" y="500" width="160" height="290" fill="rgba(255,255,255,.05)"/>
-              <g id="pour-beer">
-                <rect x="220" y="540" width="160" height="260" fill="url(#beer)"/>
-                <g class="bubbles">
-                  <circle cx="262" cy="760" r="2.5"/><circle cx="285" cy="740" r="1.8"/><circle cx="318" cy="770" r="2.2"/>
-                  <circle cx="340" cy="750" r="1.6"/><circle cx="300" cy="765" r="2"/><circle cx="272" cy="775" r="1.5"/><circle cx="330" cy="735" r="2.4"/>
-                </g>
-                <path id="pour-foam" d="M220 540 V512 Q236 500 252 512 T284 510 T316 512 T348 508 T380 512 V540 Z" fill="#fff7e6"/>
-                <rect x="220" y="534" width="160" height="10" fill="#f7e2b0" opacity=".8"/>
-              </g>
-            </g>
-            <path d="M228 512 L372 512 L354 776 L246 776 Z" fill="url(#glassShine)" stroke="#fff" stroke-opacity=".55" stroke-width="3"/>
-            <path d="M246 776 L354 776 L352 790 L248 790 Z" fill="#fff" opacity=".25"/>
-          </g>
-
-          <!-- drip tray -->
-          <rect x="150" y="790" width="300" height="22" rx="4" fill="url(#chromeV)"/>
-          <rect x="160" y="794" width="280" height="6" fill="#111" opacity=".55"/>
-        </svg>
-      </div>
 
       <div class="th-inner">
-        <p class="th-kicker" data-scramble>Independent &amp; crew operated since 2021</p>
-        <h2 class="th-title" id="th-title">
-          <span class="th-line th-l1">No</span>
-          <span class="th-line th-l2">Boring</span>
-          <span class="th-line th-l3">Beer</span>
-        </h2>
+        <p class="th-kicker"><span class="status-chip" id="open-status">Taproom · Andheri West</span></p>
+        <h1 class="th-title" id="hero-title">
+          <span class="th-line">Your local</span>
+          <span class="th-line">taproom</span>
+          <span class="th-brush">brewed in Mumbai</span>
+        </h1>
+        <p class="th-lead">Fresh beer straight from our own tanks, bar food made for drinking, and something happening most nights. Open daily on New Link Road, Andheri West.</p>
         <div class="th-actions">
-          <a class="th-btn th-btn-fill" href="#about">Our taproom</a>
-          <a class="th-btn th-btn-line" href="#taps">What's on tap</a>
+          <a class="btn btn-spray" href="#book">Book a table</a>
+          <a class="btn btn-ghost" href="#taps">What's on tap</a>
         </div>
       </div>
 
-      <p class="th-scroll" aria-hidden="true">scroll if you're thirsty ↓</p>
-      <div class="th-ticker" aria-hidden="true">
-        <div class="th-track"><span>No boring beer ⚙ Born in Mumbai ⚙ Crew owned &amp; operated since 2021 ⚙ Brewed in Kandivali ⚙ Poured in Andheri ⚙ </span><span>No boring beer ⚙ Born in Mumbai ⚙ Crew owned &amp; operated since 2021 ⚙ Brewed in Kandivali ⚙ Poured in Andheri ⚙ </span></div>
+      <p class="th-scroll" aria-hidden="true">Scroll</p>
+      <div class="ticker" aria-hidden="true">
+        <div class="ticker-track"><span>Fresh from the tank ✦ Open 7 days ✦ New Link Road, Andheri West ✦ Brewed in Kandivali ✦ Independent since 2021 ✦ </span><span>Fresh from the tank ✦ Open 7 days ✦ New Link Road, Andheri West ✦ Brewed in Kandivali ✦ Independent since 2021 ✦ </span></div>
       </div>
     </section>
 
-    <!-- ================= ABOUT THE TAPROOM ================= -->
-    <section class="about" id="about" aria-labelledby="about-title">
-      <div class="about-grid">
-        <div class="about-photos" aria-label="Taproom photos">
-          <!-- Swap each placeholder for a real photo: put <img src="assets/photos/....jpg" alt="..."> inside the figure -->
-          <figure class="snap snap-1"><img src="assets/photos/brewhouse-bw.webp" alt="Stainless steel fermentation tanks lining the Rolling Mills brewhouse in Kandivali" width="737" height="697" loading="lazy"><figcaption>the brewhouse, Kandivali</figcaption></figure>
-          <figure class="snap snap-2"><div class="snap-ph"><span>taproom photo</span></div><figcaption>the bar, Andheri W</figcaption></figure>
-          <figure class="snap snap-3"><img src="assets/photos/brewhouse-wide.webp" alt="The Rolling Mills brewhouse with its backlit gold logo above the brewing tanks" width="1632" height="726" loading="lazy"><figcaption>the brew deck</figcaption></figure>
-          <span class="about-sticker" aria-hidden="true"><b>Est. 21</b><small>Mumbai</small></span>
-        </div>
+    <!-- ================= THE TAPROOM ================= -->
+    <section class="section light" id="taproom" aria-labelledby="taproom-title">
+      <div class="container split">
+        <figure class="photo-frame reveal">
+          <img src="assets/photos/brewhouse-wide.webp" alt="The Rolling Mills brewhouse, with the gold Rolling Mills sign above the brewing tanks" width="1632" height="726" loading="lazy">
+          <figcaption>Every beer we pour is brewed here, in our Kandivali brewhouse.</figcaption>
+        </figure>
+        <div class="split-copy">
+          <p class="marker">The taproom</p>
+          <h2 class="h2" id="taproom-title">Pull up a stool.</h2>
+          <p class="lead">Our Craft Beer Dispensary on New Link Road is where Rolling Mills comes to life. Every pint is poured fresh from our tanks by the people who brewed it, with food that's built to go with beer and a crowd that's always up for one more.</p>
 
-        <div class="about-copy">
-          <p class="about-kicker" data-scramble>Our story</p>
-          <h2 class="about-title" id="about-title">Built by beer nerds.<br><span>Run by the crew.</span></h2>
-          <p>Rolling Mills started in 2021 in a warehouse in Charkop Industrial Estate, Kandivali, with one obsession: brewing beers that make you stop mid-sip. What began as a brewhouse grew into collabs, a loyal crowd, and a taproom of our own.</p>
-          <p>Our <strong>Craft Beer Dispensary</strong> on New Link Road, Andheri West, is where it all comes together. Every pint is poured fresh from our tanks by the people who brewed it, with bar food built to go with beer and something happening most nights.</p>
-
-          <ul class="perks">
-            <li><span class="perk-big" id="perk-taps">9</span><span class="perk-txt">beers on tap,<br>rotating often</span></li>
-            <li><span class="perk-big">🍔</span><span class="perk-txt">bar kitchen,<br>beer pairings</span></li>
-            <li><span class="perk-big">🎤</span><span class="perk-txt">live music, quiz<br>&amp; takeovers</span></li>
-            <li><span class="perk-big">🍺</span><span class="perk-txt">fresh beer<br>to go</span></li>
-            <li><span class="perk-big">7</span><span class="perk-txt">days a week,<br>10 AM – 10:30 PM</span></li>
-            <li><span class="perk-big">21+</span><span class="perk-txt">legal drinking<br>age only</span></li>
+          <ul class="facts">
+            <li><span class="fact-n" data-tap-count>9</span><span class="fact-l">Beers on tap, always rotating</span></li>
+            <li><span class="fact-n">7</span><span class="fact-l">Days a week, 10 AM – 10:30 PM</span></li>
+            <li><span class="fact-n">🍔</span><span class="fact-l">Bar kitchen with beer pairings</span></li>
+            <li><span class="fact-n">🎤</span><span class="fact-l">Music, quizzes &amp; tap takeovers</span></li>
           </ul>
 
-          <div class="about-actions">
-            <a href="story.html" class="btn btn-spray">Dig a little deeper</a>
-            <a href="#visit" class="btn btn-ghost">Plan your visit</a>
+          <div class="today-card">
+            <p class="today-label">Tonight at the taproom</p>
+            <p class="today-event" id="tonight-event">No event tonight. Just good beer.</p>
+            <a class="text-link" href="#events">See all events →</a>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= TONIGHT STRIP ================= -->
-    <section class="tonight" aria-label="Tonight at the Mill">
-      <div class="tape" aria-hidden="true">
-        <div class="tape-track"><span>TAPS ✦ FOOD ✦ EVENTS ✦ BREWED IN MUMBAI ✦ NO BORING BEER ✦ </span><span>TAPS ✦ FOOD ✦ EVENTS ✦ BREWED IN MUMBAI ✦ NO BORING BEER ✦ </span></div>
-      </div>
-      <div class="tonight-grid">
-        <a href="#taps" class="tonight-card t-taps">
-          <span class="t-label">on tap</span>
-          <span class="t-big"><span id="tap-count">9</span> beers</span>
-          <span class="t-small">Fresh from our Kandivali brewhouse</span>
-        </a>
-        <a href="#food" class="tonight-card t-food">
-          <span class="t-label">kitchen</span>
-          <span class="t-big">Bar food</span>
-          <span class="t-small">Bites built to go with beer</span>
-        </a>
-        <a href="#events" class="tonight-card t-events">
-          <span class="t-label">tonight</span>
-          <span class="t-big">What's on</span>
-          <span class="t-small" id="tonight-event">Loading…</span>
-        </a>
-      </div>
-    </section>
-
-    <!-- ================= FEATURED BEER (pinned poster) ================= -->
-    <section class="feature" id="feature" aria-label="Featured beer: Lazy, a New England IPA">
-      <div class="feature-stage">
-        <div class="f-title" aria-hidden="true"><span>LAZY</span><span>HAZY IPA</span></div>
-        <div class="f-mouth" aria-hidden="true">MOUTHFEEL</div>
-        <div class="f-can" data-can="lazy"></div>
-        <div class="f-stats">
-          <p class="marker">this week's pour</p>
-          <h2>Lazy</h2>
-          <p class="f-style">New England IPA</p>
-          <dl>
-            <div><dt>ABV</dt><dd>6.0%</dd></div>
-            <div><dt>Hops</dt><dd>Citra · Simcoe · Azacca · El Dorado</dd></div>
-          </dl>
-          <p>Juicy, hazy and dangerously easy. Dry-hopped hard so you don't have to try hard.</p>
-        </div>
-        <div class="f-notes" aria-hidden="true">
-          <div class="splat splat-a"><span>Juicy<br>mango</span></div>
-          <div class="splat splat-b"><span>Pillow<br>soft</span></div>
-          <div class="splat splat-c"><span>Tropical<br>haze</span></div>
-          <div class="splat splat-d"><span>Low<br>bitter</span></div>
         </div>
       </div>
     </section>
 
     <!-- ================= ON TAP ================= -->
-    <section class="taps" id="taps">
-      <!-- sideways beer wall -->
-      <div class="beers" id="beers">
-        <div class="beers-track" id="beers-track">
-          <div class="beers-intro">
-            <p class="marker">on tap now</p>
-            <h2 class="spray-title">Pick your <em>poison</em></h2>
-            <p class="beers-hint">keep scrolling →</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- quick-scan tap list -->
-      <div class="tapboard graffiti-wall">
-        <div class="wall-tags" data-tags="pink,cyan" data-count="30" id="tb-tags" aria-hidden="true"></div>
+    <section class="section dark" id="taps" aria-labelledby="taps-title">
+      <div class="tags-layer" data-tags data-count="8" id="tags-taps" aria-hidden="true"></div>
+      <div class="container">
         <div class="section-head">
-          <p class="marker">the full board</p>
-          <h2 class="spray-title">Tap list</h2>
-          <p class="section-sub">Everything pouring right now. Ask the bar for tasters, they're free.</p>
+          <div>
+            <p class="marker">On tap now</p>
+            <h2 class="h2" id="taps-title">Fresh from <span class="brush">the tank</span></h2>
+          </div>
+          <p class="section-sub">Brewed in Kandivali, poured in Andheri West. Not sure what to pick? Ask the bar for a taster.</p>
         </div>
-        <div class="chips" role="group" aria-label="Filter beers by type" data-filter="tap-list">
+        <div class="chips" role="group" aria-label="Filter beers by style" data-filter="tap-list">
           <button class="chip is-on" data-value="all" type="button" aria-pressed="true">All</button>
           <button class="chip" data-value="IPA" type="button" aria-pressed="false">IPA</button>
           <button class="chip" data-value="Lager" type="button" aria-pressed="false">Lager</button>
@@ -360,219 +138,222 @@
     </section>
 
     <!-- ================= FOOD ================= -->
-    <section class="food collage" id="food">
-      <div class="collage-bg" aria-hidden="true">
-        <span>EAT</span><span>DRINK</span><span>REPEAT</span><span>HOT</span><span>FRESH</span><span>SPICY</span><span>CRUNCH</span><span>DIP IT</span><span>MORE</span><span>FRIES</span><span>BITE</span><span>NOW</span>
-      </div>
-      <div class="section-head">
-        <p class="marker">from the kitchen</p>
-        <h2 class="spray-title">Bar <em>food</em></h2>
-        <p class="section-sub">Built to go with beer. Every dish comes with a pint we think it goes with.</p>
-      </div>
-      <div class="food-controls">
-        <div class="chips" role="group" aria-label="Filter menu by category" data-filter="food-grid" data-attr="cat">
-          <button class="chip is-on" data-value="all" type="button" aria-pressed="true">Everything</button>
-          <button class="chip" data-value="Bar Bites" type="button" aria-pressed="false">Bar Bites</button>
-          <button class="chip" data-value="Big Plates" type="button" aria-pressed="false">Big Plates</button>
-          <button class="chip" data-value="Sweet" type="button" aria-pressed="false">Sweet</button>
+    <section class="section light" id="food" aria-labelledby="food-title">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="marker">From the kitchen</p>
+            <h2 class="h2" id="food-title">Food made for <span class="brush">beer</span></h2>
+          </div>
+          <p class="section-sub">Every dish comes with the pint we'd pour alongside it.</p>
         </div>
-        <label class="veg-toggle"><input type="checkbox" id="veg-only"><span class="switch"></span>Veg only</label>
-      </div>
-      <div class="food-grid" id="food-grid"></div>
-      <div class="food-cta">
-        <a class="btn btn-spray" href="https://airmenus.in/rollingmills/order" target="_blank" rel="noopener">Order online</a>
-        <p>Full menu and prices at the bar.</p>
+        <div class="food-controls">
+          <div class="chips" role="group" aria-label="Filter menu by category" data-filter="food-grid" data-attr="cat">
+            <button class="chip is-on" data-value="all" type="button" aria-pressed="true">Everything</button>
+            <button class="chip" data-value="Bar Bites" type="button" aria-pressed="false">Bar Bites</button>
+            <button class="chip" data-value="Big Plates" type="button" aria-pressed="false">Big Plates</button>
+            <button class="chip" data-value="Sweet" type="button" aria-pressed="false">Sweet</button>
+          </div>
+          <label class="veg-toggle"><input type="checkbox" id="veg-only"><span class="switch" aria-hidden="true"></span>Veg only</label>
+        </div>
+        <div class="menu" id="food-grid"></div>
+        <div class="section-foot">
+          <a class="btn btn-spray" href="https://airmenus.in/rollingmills/order" target="_blank" rel="noopener">Order online</a>
+          <p>Full menu and prices at the bar.</p>
+        </div>
       </div>
     </section>
 
     <!-- ================= EVENTS ================= -->
-    <section class="events neon-door" id="events">
-      <div class="wall-tags" data-tags="gold,white" data-count="40" id="ev-tags" aria-hidden="true"></div>
-      <div class="section-head">
-        <p class="marker">what's on</p>
-        <h2 class="spray-title">Events</h2>
-        <p class="section-sub">Live music, quiz nights, tap takeovers and the occasional bad idea. RSVP on WhatsApp so we save you a spot.</p>
-      </div>
-      <div class="chips" role="group" aria-label="Filter events by type" data-filter="event-wall">
-        <button class="chip is-on" data-value="all" type="button" aria-pressed="true">All</button>
-        <button class="chip" data-value="Music" type="button" aria-pressed="false">Music</button>
-        <button class="chip" data-value="Quiz" type="button" aria-pressed="false">Quiz</button>
-        <button class="chip" data-value="Comedy" type="button" aria-pressed="false">Comedy</button>
-        <button class="chip" data-value="Tap Takeover" type="button" aria-pressed="false">Tap Takeover</button>
-        <button class="chip" data-value="Art" type="button" aria-pressed="false">Art</button>
-        <button class="chip" data-value="Party" type="button" aria-pressed="false">Party</button>
-      </div>
-      <div class="event-wall" id="event-wall"></div>
-
-      <aside class="private">
-        <div>
-          <p class="marker">your party, our warehouse</p>
-          <h3>Host your event at the Mill</h3>
-          <p>Birthdays, team nights, launches. Kegs, food and the whole room if you want it.</p>
+    <section class="section dark" id="events" aria-labelledby="events-title">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="marker">What's on</p>
+            <h2 class="h2" id="events-title">Nights at <span class="brush">the Mill</span></h2>
+          </div>
+          <p class="section-sub">Live music, quiz nights and tap takeovers. RSVP on WhatsApp and we'll keep a spot for you.</p>
         </div>
-        <a class="btn btn-spray" id="private-cta" href="#book">Plan a party</a>
-      </aside>
+        <div class="chips" role="group" aria-label="Filter events by type" data-filter="event-wall">
+          <button class="chip is-on" data-value="all" type="button" aria-pressed="true">All</button>
+          <button class="chip" data-value="Music" type="button" aria-pressed="false">Music</button>
+          <button class="chip" data-value="Quiz" type="button" aria-pressed="false">Quiz</button>
+          <button class="chip" data-value="Comedy" type="button" aria-pressed="false">Comedy</button>
+          <button class="chip" data-value="Tap Takeover" type="button" aria-pressed="false">Tap Takeover</button>
+          <button class="chip" data-value="Party" type="button" aria-pressed="false">Party</button>
+        </div>
+        <div class="event-list" id="event-wall"></div>
+
+        <aside class="private reveal">
+          <div>
+            <p class="marker">Private events</p>
+            <h3>Host your party at the taproom</h3>
+            <p>Birthdays, team nights, launches. We'll sort the kegs, the food and the space.</p>
+          </div>
+          <a class="btn btn-spray" id="private-cta" href="#book">Plan a party</a>
+        </aside>
+      </div>
     </section>
 
-    <!-- ================= THE MILL (warehouse) ================= -->
-    <section class="mill concrete" id="mill">
-      <div class="mill-lamps" aria-hidden="true"><i></i><i></i><i></i></div>
-      <div class="mill-inner">
-        <p class="marker">why "rolling mills"?</p>
-        <h2 class="mill-title stencil">
-          <span class="line">A rolling mill</span>
-          <span class="line">reshapes steel.</span>
-          <span class="line accent">We're here to</span>
-          <span class="line accent">reshape beer.</span>
-        </h2>
-        <div class="mill-cols">
-          <p>Rolling Mills is an independent craft brewery in Mumbai, chasing <strong>expressive and provocative</strong> beers. A rolling mill changes the shape of metal. We want to change what India thinks craft beer can be.</p>
-          <p>Every drop is brewed in our warehouse in Charkop Industrial Estate, Kandivali, then poured fresh at our taproom in Andheri West. We've even brewed a Mexican lager, <strong>Los Pablos</strong>, with our friends at Simba.</p>
+    <!-- ================= STORY TEASER ================= -->
+    <section class="section light" id="story" aria-labelledby="story-title">
+      <div class="container split split-rev">
+        <div class="split-copy">
+          <p class="marker">Our story</p>
+          <h2 class="h2" id="story-title">It was always about <span class="brush">the beer</span></h2>
+          <p class="lead">Rolling Mills started in 2021 in a warehouse in Charkop Industrial Estate, Kandivali, with one obsession: beer that makes you stop mid-sip. A rolling mill reshapes steel. We set out to reshape what Mumbai expects from craft beer.</p>
+          <a class="btn btn-dark" href="story.html">Read our story</a>
         </div>
-        <ul class="mill-facts">
-          <li><span class="fact-num">2021</span><span>Fired up the brewhouse</span></li>
-          <li><span class="fact-num">100%</span><span>Independent</span></li>
-          <li><span class="fact-num">10+</span><span>Styles on rotation</span></li>
-        </ul>
-      </div>
-      <div class="stickers" aria-hidden="true">
-        <span class="sticker s1">NO BORING BEER</span>
-        <span class="sticker s2">MADE IN MUMBAI</span>
-        <span class="sticker s3">HOPS &gt; HYPE</span>
+        <figure class="photo-frame tilt reveal">
+          <img src="assets/photos/brewhouse-bw.webp" alt="Fermentation tanks inside the Rolling Mills brewhouse" width="737" height="697" loading="lazy">
+          <span class="est-badge" aria-hidden="true"><b>Est. 21</b><small>Mumbai</small></span>
+        </figure>
       </div>
     </section>
 
     <!-- ================= VISIT + BOOK ================= -->
-    <section class="visit graffiti-wall" id="visit">
-      <div class="wall-tags" data-tags="pink,cyan,white" data-count="30" id="vi-tags" aria-hidden="true"></div>
-      <div class="section-head">
-        <p class="marker">come thirsty</p>
-        <h2 class="spray-title">Find <em>us</em></h2>
-      </div>
-      <div class="visit-grid">
-        <div class="visit-cards">
-          <article class="location">
-            <span class="loc-num">01 · taproom</span>
-            <h3>Craft Beer Dispensary</h3>
-            <p>Shop No. 20, Meera Co-Op, New Link Road, Oshiwara, Andheri West, Mumbai 400053</p>
-            <p class="hours">Open 7 days · <span class="hours-text">10 AM – 10:30 PM</span></p>
-            <div class="loc-actions">
-              <a class="btn btn-small btn-spray" href="https://maps.google.com/?q=Rolling+Mills+Craft+Beer+Dispensary+Andheri+West" target="_blank" rel="noopener">Directions</a>
-              <a class="btn btn-small btn-ghost" href="tel:+917400407711">Call</a>
-            </div>
-          </article>
-          <article class="location">
-            <span class="loc-num">02 · brewery</span>
-            <h3>The Brewhouse</h3>
-            <p>146-BCD, Govt. Industrial Estate, Charkop Road, Kandivali West, Mumbai 400067</p>
-            <p class="hours">Tours on event days only</p>
-            <div class="loc-actions">
-              <a class="btn btn-small btn-ghost" href="https://maps.google.com/?q=Rolling+Mills+Brewery+Kandivali" target="_blank" rel="noopener">Directions</a>
-            </div>
-          </article>
+    <section class="section dark" id="visit" aria-labelledby="visit-title">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="marker">Visit</p>
+            <h2 class="h2" id="visit-title">Come thirsty</h2>
+          </div>
         </div>
+        <div class="visit-grid">
+          <div class="visit-info">
+            <article class="place">
+              <p class="place-label">The taproom</p>
+              <h3>Craft Beer Dispensary</h3>
+              <p>Shop No. 20, Meera Co-Op, New Link Road, Oshiwara, Andheri West, Mumbai 400053</p>
+              <dl class="hours">
+                <div><dt>Open</dt><dd>Every day, 10 AM – 10:30 PM</dd></div>
+                <div><dt>Call</dt><dd><a href="tel:+917400407711">+91 74004 07711</a></dd></div>
+              </dl>
+              <div class="place-actions">
+                <a class="btn btn-small btn-spray" href="https://maps.google.com/?q=Rolling+Mills+Craft+Beer+Dispensary+Andheri+West" target="_blank" rel="noopener">Get directions</a>
+                <a class="btn btn-small btn-ghost" href="https://wa.me/917400407711" target="_blank" rel="noopener">WhatsApp us</a>
+              </div>
+            </article>
+            <article class="place place-muted">
+              <p class="place-label">The brewhouse</p>
+              <h3>Kandivali West</h3>
+              <p>146-BCD, Govt. Industrial Estate, Charkop Road, Kandivali West, Mumbai 400067. Not open to walk-ins.</p>
+            </article>
+          </div>
 
-        <form class="book-form" id="book" aria-labelledby="book-title">
-          <p class="marker">save me a stool</p>
-          <h3 id="book-title">Book a table</h3>
-          <p class="form-note">We'll confirm on WhatsApp. No app, no deposit.</p>
-          <div class="field">
-            <label for="b-name">Name</label>
-            <input id="b-name" name="name" required autocomplete="name">
-          </div>
-          <div class="field-row">
+          <form class="book-form" id="book" aria-labelledby="book-title">
+            <h3 id="book-title">Book a table</h3>
+            <p class="form-note">We'll confirm on WhatsApp. No app, no deposit.</p>
             <div class="field">
-              <label for="b-date">Date</label>
-              <input id="b-date" name="date" type="date" required>
+              <label for="b-name">Name</label>
+              <input id="b-name" name="name" required autocomplete="name">
             </div>
-            <div class="field">
-              <label for="b-time">Time</label>
-              <select id="b-time" name="time" required></select>
-            </div>
-          </div>
-          <div class="field-row">
-            <div class="field">
-              <label for="b-guests">Guests</label>
-              <div class="stepper">
-                <button type="button" data-step="-1" aria-label="Fewer guests">−</button>
-                <input id="b-guests" name="guests" type="number" min="1" max="40" value="2" inputmode="numeric">
-                <button type="button" data-step="1" aria-label="More guests">+</button>
+            <div class="field-row">
+              <div class="field">
+                <label for="b-date">Date</label>
+                <input id="b-date" name="date" type="date" required>
+              </div>
+              <div class="field">
+                <label for="b-time">Time</label>
+                <select id="b-time" name="time" required></select>
               </div>
             </div>
-            <div class="field">
-              <label for="b-occasion">Occasion</label>
-              <select id="b-occasion" name="occasion">
-                <option value="">Just drinks</option>
-                <option>Birthday</option>
-                <option>Date night</option>
-                <option>Team outing</option>
-                <option>Private party</option>
-                <option>Event night</option>
-              </select>
+            <div class="field-row">
+              <div class="field">
+                <label for="b-guests">Guests</label>
+                <div class="stepper">
+                  <button type="button" data-step="-1" aria-label="Fewer guests">−</button>
+                  <input id="b-guests" name="guests" type="number" min="1" max="40" value="2" inputmode="numeric">
+                  <button type="button" data-step="1" aria-label="More guests">+</button>
+                </div>
+              </div>
+              <div class="field">
+                <label for="b-occasion">Occasion</label>
+                <select id="b-occasion" name="occasion">
+                  <option value="">Just drinks</option>
+                  <option>Birthday</option>
+                  <option>Date night</option>
+                  <option>Team outing</option>
+                  <option>Private party</option>
+                  <option>Event night</option>
+                </select>
+              </div>
             </div>
-          </div>
-          <button class="btn btn-spray btn-full" type="submit">Book on WhatsApp</button>
-          <p class="form-status" id="book-status" role="status"></p>
-        </form>
+            <button class="btn btn-spray btn-full" type="submit">Request on WhatsApp</button>
+            <p class="form-status" id="book-status" role="status"></p>
+          </form>
+        </div>
       </div>
     </section>
 
-    <!-- ================= SPRAY WALL + INSTAGRAM ================= -->
-    <section class="tagwall" id="tag" aria-label="Leave your tag">
-      <div class="tagwall-head">
-        <p class="marker">your turn</p>
-        <h2 class="spray-title">Leave your <em>tag</em></h2>
-        <p class="section-sub">Grab a can and spray the wall. Drag with your mouse or finger.</p>
-      </div>
-      <div class="tagwall-board">
-        <canvas id="spray-canvas" aria-label="Spray paint canvas"></canvas>
-        <div class="spray-tools" role="group" aria-label="Spray colours">
-          <button class="can-btn is-on" style="--c:#ff2e88" data-color="#ff2e88" aria-label="Pink" type="button"></button>
-          <button class="can-btn" style="--c:#29e3ff" data-color="#29e3ff" aria-label="Cyan" type="button"></button>
-          <button class="can-btn" style="--c:#ffc21a" data-color="#ffc21a" aria-label="Gold" type="button"></button>
-          <button class="can-btn" style="--c:#f5f5f0" data-color="#f5f5f0" aria-label="White" type="button"></button>
-          <button class="tool-btn" id="spray-clear" type="button">Buff it</button>
-          <button class="tool-btn" id="spray-save" type="button">Save ↓</button>
+    <!-- ================= LEAVE YOUR TAG ================= -->
+    <section class="section tagwall" id="tag" aria-labelledby="tag-title">
+      <div class="container">
+        <div class="section-head center">
+          <div>
+            <p class="marker">Your turn</p>
+            <h2 class="h2" id="tag-title">Leave your <span class="brush">tag</span></h2>
+          </div>
+          <p class="section-sub">Grab a can and spray the wall. Drag with your mouse or finger, then save it and tag us.</p>
+        </div>
+        <div class="tagwall-board">
+          <canvas id="spray-canvas" aria-label="Spray paint canvas"></canvas>
+          <div class="spray-tools" role="group" aria-label="Spray colours">
+            <button class="can-btn is-on" style="--c:#e9b44c" data-color="#e9b44c" aria-label="Gold" type="button"></button>
+            <button class="can-btn" style="--c:#f2eee6" data-color="#f2eee6" aria-label="White" type="button"></button>
+            <button class="can-btn" style="--c:#e2483d" data-color="#e2483d" aria-label="Red" type="button"></button>
+            <button class="can-btn" style="--c:#58c4dd" data-color="#58c4dd" aria-label="Blue" type="button"></button>
+            <button class="tool-btn" id="spray-clear" type="button">Clear</button>
+            <button class="tool-btn" id="spray-save" type="button">Save</button>
+          </div>
         </div>
       </div>
-      <a href="https://www.instagram.com/rollingmillsbrewery" target="_blank" rel="noopener" class="ig-link">
-        <span class="marker">post it & tag us</span>
-        <span class="ig-handle">@rollingmillsbrewery</span>
-      </a>
+    </section>
+
+    <!-- ================= JOIN ================= -->
+    <section class="join">
+      <h2 class="join-title">Join us for a <span class="brush">cold one</span></h2>
+      <div class="join-actions">
+        <a class="btn btn-spray" href="#book">Book a table</a>
+        <a class="btn btn-ghost" href="https://www.instagram.com/rollingmillsbrewery" target="_blank" rel="noopener">@rollingmillsbrewery</a>
+      </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="footer-inner">
-      <p class="footer-logo">Rolling Mills</p>
-      <div class="footer-cols">
-        <div>
-          <h4>Taproom</h4>
-          <p>Shop No. 20, Meera Co-Op, New Link Rd, Oshiwara, Andheri West, Mumbai 400053</p>
-          <p>Open daily · 10 AM – 10:30 PM</p>
-        </div>
-        <div>
-          <h4>Explore</h4>
-          <a href="#taps">On tap</a><a href="#food">Food</a><a href="#events">Events</a><a href="#book">Book a table</a>
-        </div>
-        <div>
-          <h4>Say hi</h4>
-          <a href="tel:+917400407711">+91 74004 07711</a>
-          <a href="https://www.instagram.com/rollingmillsbrewery" target="_blank" rel="noopener">Instagram</a>
-          <a href="https://airmenus.in/rollingmills/order" target="_blank" rel="noopener">Order online</a>
-        </div>
+    <div class="container footer-grid">
+      <div>
+        <p class="footer-logo">Rolling Mills</p>
+        <p class="footer-tag">Independent craft brewery &amp; taproom, Mumbai.</p>
       </div>
-      <p class="small">Please drink responsibly. Sale and consumption of alcohol is only for persons of legal drinking age. Don't drink and drive.</p>
-      <p class="small">© <span id="year"></span> Rolling Mills Brewery LLP</p>
+      <div>
+        <h4>Taproom</h4>
+        <p>Shop No. 20, Meera Co-Op, New Link Rd, Oshiwara, Andheri West, Mumbai 400053</p>
+        <p>Open daily · 10 AM – 10:30 PM</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <a href="#taps">On tap</a><a href="#food">Food</a><a href="#events">Events</a><a href="story.html">Our story</a>
+      </div>
+      <div>
+        <h4>Say hi</h4>
+        <a href="tel:+917400407711">+91 74004 07711</a>
+        <a href="https://www.instagram.com/rollingmillsbrewery" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://airmenus.in/rollingmills/order" target="_blank" rel="noopener">Order online</a>
+      </div>
+    </div>
+    <div class="container footer-base">
+      <p>Please drink responsibly. Alcohol is served only to guests of legal drinking age. Don't drink and drive.</p>
+      <p>© <span id="year"></span> Rolling Mills Brewery LLP</p>
     </div>
   </footer>
 
-  <!-- mobile quick-action bar -->
   <nav class="action-bar" aria-label="Quick actions">
-    <a href="#taps"><span>🍺</span>Taps</a>
-    <a href="#food"><span>🍔</span>Food</a>
-    <a href="#events"><span>🎤</span>Events</a>
-    <a href="#book" class="ab-book"><span>📅</span>Book</a>
+    <a href="#taps">On tap</a>
+    <a href="#food">Food</a>
+    <a href="#events">Events</a>
+    <a href="#book" class="ab-book">Book</a>
   </nav>
 
   <script src="js/vendor/gsap.min.js"></script>

@@ -42,13 +42,12 @@
   if (!row) return;
   const tiles = [
     `<img src="assets/photos/brewhouse-wide.webp" alt="The Rolling Mills brewhouse">`,
-    canSVG(BEER_BY_ID.lazy),
+    `<span class="igs-word">Fresh<br>drops</span>`,
     `<img src="assets/photos/brewhouse-bw.webp" alt="Tanks in the Rolling Mills brewhouse">`,
-    canSVG(BEER_BY_ID.guns),
-    canSVG(BEER_BY_ID.kura),
+    `<span class="igs-word">Event<br>nights</span>`,
   ];
   row.innerHTML = tiles.map((t, i) => `
-    <a class="igs-tile ${t.includes("can-svg") ? "is-can" : ""}" href="${CONTACT.instagram}" target="_blank" rel="noopener" aria-label="Open Rolling Mills on Instagram">${t}<span class="igs-hover" aria-hidden="true">@rollingmillsbrewery</span></a>`).join("");
+    <a class="igs-tile ${t.includes("igs-word") ? "is-text" : ""}" href="${CONTACT.instagram}" target="_blank" rel="noopener" aria-label="Open Rolling Mills on Instagram">${t}<span class="igs-hover" aria-hidden="true">@rollingmillsbrewery</span></a>`).join("");
 })();
 
 // ---------- motion ----------

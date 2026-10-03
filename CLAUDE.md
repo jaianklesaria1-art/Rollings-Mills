@@ -10,37 +10,24 @@ Read this first. It records what's been built, why, and what's still open, so a 
 - From public listings, **not yet confirmed by the user**: phone/WhatsApp +91 74004 07711, hours 10 AM – 10:30 PM daily.
 - Real beer names (from Untappd/search): Lazy (NEIPA, 6%), Kura Kura, Shocktown, Guns For Hands, Sip Your Greens, Pastry Stout, Social Cues, White Noise, El Bandido, Schwarzbrot, Sausage Pretzel, Slippery When Wet, Time Theorists. Only Lazy's ABV and hops are sourced; the other tasting notes were written by Claude.
 
-## What the user wants (design direction)
-- Theme: **80% graffiti, 20% warehouse**. Neon pink, cyan and gold tags, spray paint, drips, wheat-paste posters, red pendant lamps, concrete. A dark site.
-- It's a **taproom**: tap beers, food and events, with strong UX.
-- Main reference site: **thebeerzombies.com** (Beer Zombies, Las Vegas). The user sent screen recordings of its home hero, Our Story page and beer-pour video. We copy the **layout and feel**, never their copy, footage or green branding. Our accent is pink (#ff2e88).
-- Early references: two scroll-animation videos (a pinned bottle with huge text behind it, and a horizontal can wall) and five mood images (neon graffiti alley, red neon door, red-lamp concrete corridor, pink drippy poster, poster collage). The mood images are references only and aren't shipped, since some contain copyrighted art.
-- The user loves the **"Leave your tag" spray wall**.
+## What the user wants (design direction), updated Oct 3 2026
+- **REDESIGNED.** The user rejected the neon-pink graffiti version as cheap/cartoonish, too busy, too long, the wrong colours and too beer-focused. They chose **"Real Beer Zombies style"**: photo/video-led and dark, big headlines, few sections, a clean layout, graffiti only as accents, built around real photos.
+- **The focus is the TAPROOM** (the place, the experience, food and events), not just the beers.
+- **Palette:** black `#0b0b0b`, bone `#f2eee6`, brewhouse-sign gold `#e9b44c` (deep gold `#9a6a12` on light backgrounds). No neon pink or cyan. Sections alternate dark and light.
+- **Type:** Anton (all headings, uppercase) + one Permanent Marker gold "brush" accent phrase per heading (`.brush`); Space Grotesk body; Space Mono for labels, buttons, chips and nav.
+- **No drawn cans, splats, stickers, 3D alley or cartoon tap-pour.** Use real photos; `assets/video/hero-pour.mp4` (if added) replaces the hero photo.
+- Reference site: thebeerzombies.com. Copy its layout and feel, never its copy, footage or green branding.
+- The user loves the **"Leave your tag" spray wall** (kept, recoloured gold, bone, red and blue).
+- 21st.dev Magic MCP was requested but is unavailable (not connected; 21st.dev is blocked by the sandbox network). To use it: allow `21st.dev` and `magic.21st.dev` in the network settings, add the key as the `TWENTY_FIRST_API_KEY` environment variable, and port the React components to static HTML/CSS.
 
 ## What's built (branch `claude/ecstatic-franklin-mdzb7c`)
 Static site with no build step. GSAP + ScrollTrigger are bundled in `js/vendor/`.
 
-**index.html (home), in page order:**
-1. Age gate (red neon door, remembered via localStorage).
-2. **Alley hero**: a 3D CSS graffiti corridor you walk down on scroll; a red neon door opens at the end. Live open/closed badge (IST).
-3. **Brand hero (Beer Zombies style)**: dark brewhouse photo, pink smoke, Permanent Marker headline "NO BORING BEER", Space Mono scramble kicker, buttons, "scroll if you're thirsty", pink ticker, and a header scroll-progress line. A **drawn SVG tap-pour loop** sits on the right. If `assets/video/hero-pour.mp4` exists it plays full-screen instead (`.th.has-video`).
-4. **About the taproom**: taped photo collage (2 real brewhouse photos + a taproom placeholder), round "Est. 21" badge, word-by-word blur heading, a perks grid, and a "Dig a little deeper" button linking to story.html.
-5. Tonight strip, featured beer (pinned pink poster, MOUTHFEEL sweep), horizontal beer wall, tap list with filters.
-6. Food (poster collage, category filter, veg-only toggle), Events (gig posters, filters, WhatsApp RSVP, .ics).
-7. The Mill (B&W brewhouse photo backdrop), Visit + WhatsApp booking form, spray wall, footer, mobile bottom action bar.
+**index.html, in order:** age gate → hero (full-bleed brewhouse photo, "Your local taproom / brewed in Mumbai", live open/closed chip, buttons, mono ticker) → **The Taproom** (photo + "Pull up a stool", facts grid, tonight card) → **On tap** (clean list, style filters, pairings) → **Food** (two-column menu, category chips, veg toggle) → **Events** (date rows, RSVP via WhatsApp, .ics, private-party box `#private-cta`) → **Story teaser** (tilted B&W photo, Est. 21 badge, link to story.html) → **Visit** (taproom and brewhouse cards + WhatsApp booking form `#book`) → **Leave your tag** → Join → footer → mobile action bar.
 
-**story.html (Our Story, Beer Zombies style):** hero "Forged in the Mill", "Before the first pour", photo band "Crew owned. Crew operated.", a scroll-filled timeline (from `TIMELINE`), a reviews wall (from `REVIEWS`; shows a Google review CTA when empty), an Instagram strip, and "Join us".
+**story.html:** hero "Forged in the Mill", "Before the first pour", photo band "Crew owned. Crew operated.", scroll-filled timeline (`TIMELINE`), reviews (`REVIEWS`, CTA when empty), an Instagram strip (photos + text tiles), Join.
 
-**Files:** `js/data.js` (all content: BEERS, FOOD, EVENTS, HOURS, CONTACT, TIMELINE, REVIEWS), `js/render.js` (cans, tags, lists), `js/main.js` (shared UI, guarded so it works on both pages), `js/scroll.js` (home animations), `js/story.js`, `css/styles.css`, `assets/photos/` (the user's 2 brewhouse photos), `assets/video/README.txt`.
-
-## Design system (refined Oct 2026). Keep new work consistent with it.
-- **Fonts (6):** Permanent Marker = headings (`.spray-title`, heroes); Anton = condensed UI titles and cards; Space Grotesk = body; Space Mono (`--f-mono`) = labels, buttons, chips; Sedgwick Ave Display and Rubik Spray Paint = graffiti art only (tags, alley pieces, beer-wall words). Rubik Wet Paint and Saira Stencil were removed.
-- **Section label:** `.marker` = pink mono caps with a glowing rule before it; it scrambles in on scroll. Use `#c8106a` on light paper sections.
-- **Buttons:** one system. `.btn`/`.th-btn` are mono caps; `.btn-spray`/`.th-btn-fill` = pink fill; `.btn-ghost`/`.th-btn-line` = outline. No offset shadows.
-- **Chips:** mono, pill-shaped, pink when active.
-- Background graffiti tags are masked away from headings and intro text (see the REFINEMENT block at the end of styles.css).
-- The menu highlights the section currently on screen. Both pages have Open Graph tags and a favicon; index.html has Brewery/BarOrPub JSON-LD.
-- **21st.dev Magic MCP:** the user asked for it, but it isn't connected and 21st.dev is blocked by the sandbox network. To use it: allow `21st.dev` and `magic.21st.dev` in the environment's network settings, add the API key as an environment variable (e.g. `TWENTY_FIRST_API_KEY`), and add the MCP server. Its components are React/Tailwind, so they need porting to this static HTML/CSS.
+**Files:** `js/data.js` (content), `js/render.js` (taps, menu, events, tonight, faint tags; no can art any more), `js/main.js` (shared UI: age gate, nav, open status, filters, .ics, booking, spray wall, progress line, scramble, active nav), `js/scroll.js` (subtle home motion), `js/story.js`, `css/styles.css` (one stylesheet for both pages).
 
 ## Rules we've followed. Keep them.
 - **Never fabricate reviews, ratings or customer quotes.** `REVIEWS` stays empty until the user gives real ones.
